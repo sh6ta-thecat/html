@@ -31,7 +31,7 @@ function renderResults(data) {
         <img src="${item.imagen}" alt="${item.title}">
         <div class="card-content">
           <h2>${item.title}</h2>
-          <p>Tags: ${item.tags}</p>
+          <p>Tags:&nbsp;&nbsp; ${item.tags}</p>
         </div>
       </a>
     `
