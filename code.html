@@ -1,0 +1,1144 @@
+TEMA COMPLETO: ARRAYS, ARREGLOS, ARRAYLISTS Y ORDENAMIENTO EN JAVA
+
+3. ARRAYLISTS (LISTAS DINÁMICAS)
+
+Concepto:
+
+ArrayList es una clase de Java que implementa una lista dinámica que puede crecer o reducirse según sea necesario.
+
+Características:
+
+· Tamaño dinámico
+· Implementa la interfaz List
+· Permite elementos duplicados
+· Mantiene el orden de inserción
+· Sintaxis: ArrayList<tipo> nombre = new ArrayList<>();
+
+---
+
+Ejemplo 1: ArrayList básico de enteros
+
+```java
+/**
+ * Crear un ArrayList de números enteros, agregar elementos dinámicamente
+ * y realizar operaciones básicas
+ */
+import java.util.ArrayList;
+import java.util.Collections;
+
+public class Ejemplo1ArrayList {
+    public static void main(String[] args) {
+        // Crear ArrayList
+        ArrayList<Integer> numeros = new ArrayList<>();
+        
+        // Agregar elementos
+        numeros.add(50);
+        numeros.add(20);
+        numeros.add(80);
+        numeros.add(10);
+        numeros.add(30);
+        
+        System.out.println("ArrayList original: " + numeros);
+        System.out.println("Tamaño: " + numeros.size());
+        System.out.println("¿Está vacío? " + numeros.isEmpty());
+        
+        // Acceder a elementos
+        System.out.println("\nPrimer elemento: " + numeros.get(0));
+        System.out.println("Último elemento: " + numeros.get(numeros.size()-1));
+        
+        // Modificar elemento
+        numeros.set(2, 100);
+        System.out.println("\nDespués de modificar posición 2: " + numeros);
+        
+        // Eliminar elemento
+        numeros.remove(1);
+        System.out.println("Después de eliminar posición 1: " + numeros);
+        
+        // Ordenar
+        Collections.sort(numeros);
+        System.out.println("ArrayList ordenado: " + numeros);
+        
+        // Buscar elemento
+        int buscar = 30;
+        System.out.println("\n¿Contiene " + buscar + "? " + numeros.contains(buscar));
+        System.out.println("Posición de " + buscar + ": " + numeros.indexOf(buscar));
+    }
+}
+```
+
+Ejemplo 2: ArrayList de objetos (Estudiantes)
+
+```java
+/**
+ * Crear un ArrayList de objetos Estudiante
+ * con atributos: nombre, edad y promedio
+ */
+import java.util.ArrayList;
+
+class Estudiante {
+    String nombre;
+    int edad;
+    double promedio;
+    
+    public Estudiante(String nombre, int edad, double promedio) {
+        this.nombre = nombre;
+        this.edad = edad;
+        this.promedio = promedio;
+    }
+    
+    @Override
+    public String toString() {
+        return nombre + " (" + edad + " años) - Promedio: " + promedio;
+    }
+}
+
+public class Ejemplo2ArrayList {
+    public static void main(String[] args) {
+        ArrayList<Estudiante> estudiantes = new ArrayList<>();
+        
+        // Agregar estudiantes
+        estudiantes.add(new Estudiante("Ana García", 20, 8.5));
+        estudiantes.add(new Estudiante("Carlos López", 22, 7.8));
+        estudiantes.add(new Estudiante("María Rodríguez", 21, 9.2));
+        estudiantes.add(new Estudiante("Juan Pérez", 19, 6.5));
+        estudiantes.add(new Estudiante("Laura Martínez", 23, 8.9));
+        
+        System.out.println("=== LISTA DE ESTUDIANTES ===");
+        for(Estudiante e : estudiantes) {
+            System.out.println(e);
+        }
+        
+        // Calcular promedio general
+        double suma = 0;
+        for(Estudiante e : estudiantes) {
+            suma += e.promedio;
+        }
+        double promedioGeneral = suma / estudiantes.size();
+        System.out.println("\nPromedio general: " + 
+                          String.format("%.2f", promedioGeneral));
+        
+        // Encontrar estudiante con mejor promedio
+        Estudiante mejor = estudiantes.get(0);
+        for(Estudiante e : estudiantes) {
+            if(e.promedio > mejor.promedio) {
+                mejor = e;
+            }
+        }
+        System.out.println("Mejor promedio: " + mejor.nombre + 
+                          " - " + mejor.promedio);
+        
+        // Filtrar estudiantes con promedio mayor a 8.0
+        System.out.println("\nEstudiantes con promedio > 8.0:");
+        for(Estudiante e : estudiantes) {
+            if(e.promedio > 8.0) {
+                System.out.println("- " + e.nombre + " (" + e.promedio + ")");
+            }
+        }
+    }
+}
+```
+
+Ejemplo 3: ArrayList para sistema de reservas
+
+```java
+/**
+ * Sistema de reservas para un hotel usando ArrayList
+ */
+import java.util.ArrayList;
+import java.util.Scanner;
+
+class Reserva {
+    String nombreCliente;
+    int numeroHabitacion;
+    int noches;
+    double precioPorNoche;
+    
+    public Reserva(String nombre, int habitacion, int noches, double precio) {
+        this.nombreCliente = nombre;
+        this.numeroHabitacion = habitacion;
+        this.noches = noches;
+        this.precioPorNoche = precio;
+    }
+    
+    public double calcularTotal() {
+        return noches * precioPorNoche;
+    }
+    
+    @Override
+    public String toString() {
+        return String.format("Cliente: %s | Habitación: %d | Noches: %d | Total: $%.2f",
+                           nombreCliente, numeroHabitacion, noches, calcularTotal());
+    }
+}
+
+public class Ejemplo3ArrayList {
+    public static void main(String[] args) {
+        ArrayList<Reserva> reservas = new ArrayList<>();
+        Scanner scanner = new Scanner(System.in);
+        
+        // Agregar reservas iniciales
+        reservas.add(new Reserva("Pedro Sánchez", 101, 3, 120.50));
+        reservas.add(new Reserva("Lucía Fernández", 205, 5, 95.75));
+        reservas.add(new Reserva("Miguel Torres", 102, 2, 120.50));
+        reservas.add(new Reserva("Elena Vargas", 307, 7, 150.00));
+        
+        System.out.println("=== SISTEMA DE RESERVAS DEL HOTEL ===\n");
+        
+        // Mostrar todas las reservas
+        System.out.println("Reservas actuales:");
+        for(int i = 0; i < reservas.size(); i++) {
+            System.out.println((i+1) + ". " + reservas.get(i));
+        }
+        
+        // Calcular ingresos totales
+        double ingresosTotales = 0;
+        for(Reserva r : reservas) {
+            ingresosTotales += r.calcularTotal();
+        }
+        System.out.println("\nIngresos totales: $" + 
+                          String.format("%.2f", ingresosTotales));
+        
+        // Buscar reserva por cliente
+        System.out.print("\nIngrese nombre a buscar: ");
+        String buscar = scanner.nextLine();
+        boolean encontrado = false;
+        
+        for(Reserva r : reservas) {
+            if(r.nombreCliente.equalsIgnoreCase(buscar)) {
+                System.out.println("Reserva encontrada: " + r);
+                encontrado = true;
+            }
+        }
+        
+        if(!encontrado) {
+            System.out.println("No se encontraron reservas para: " + buscar);
+        }
+        
+        // Agregar nueva reserva
+        System.out.println("\n=== NUEVA RESERVA ===");
+        System.out.print("Nombre del cliente: ");
+        String nombre = scanner.nextLine();
+        System.out.print("Número de habitación: ");
+        int habitacion = scanner.nextInt();
+        System.out.print("Número de noches: ");
+        int noches = scanner.nextInt();
+        System.out.print("Precio por noche: ");
+        double precio = scanner.nextDouble();
+        
+        Reserva nuevaReserva = new Reserva(nombre, habitacion, noches, precio);
+        reservas.add(nuevaReserva);
+        
+        System.out.println("\nReserva agregada exitosamente!");
+        System.out.println("Total de reservas: " + reservas.size());
+    }
+}
+```
+
+Ejemplo 4: ArrayList para gestión de biblioteca
+
+```java
+/**
+ * Sistema de gestión de libros en una biblioteca usando ArrayList
+ */
+import java.util.ArrayList;
+
+class Libro {
+    String titulo;
+    String autor;
+    int anioPublicacion;
+    boolean disponible;
+    
+    public Libro(String titulo, String autor, int anio) {
+        this.titulo = titulo;
+        this.autor = autor;
+        this.anioPublicacion = anio;
+        this.disponible = true;
+    }
+    
+    public void prestar() {
+        if(disponible) {
+            disponible = false;
+            System.out.println("Libro \"" + titulo + "\" prestado.");
+        } else {
+            System.out.println("El libro \"" + titulo + "\" no está disponible.");
+        }
+    }
+    
+    public void devolver() {
+        disponible = true;
+        System.out.println("Libro \"" + titulo + "\" devuelto.");
+    }
+    
+    @Override
+    public String toString() {
+        String estado = disponible ? "Disponible" : "Prestado";
+        return "\"" + titulo + "\" - " + autor + " (" + anioPublicacion + 
+               ") - Estado: " + estado;
+    }
+}
+
+public class Ejemplo4ArrayList {
+    public static void main(String[] args) {
+        ArrayList<Libro> biblioteca = new ArrayList<>();
+        
+        // Agregar libros
+        biblioteca.add(new Libro("Cien años de soledad", "Gabriel García Márquez", 1967));
+        biblioteca.add(new Libro("Don Quijote de la Mancha", "Miguel de Cervantes", 1605));
+        biblioteca.add(new Libro("1984", "George Orwell", 1949));
+        biblioteca.add(new Libro("Orgullo y prejuicio", "Jane Austen", 1813));
+        biblioteca.add(new Libro("El principito", "Antoine de Saint-Exupéry", 1943));
+        
+        System.out.println("=== CATÁLOGO DE BIBLIOTECA ===\n");
+        
+        // Mostrar todos los libros
+        for(Libro libro : biblioteca) {
+            System.out.println(libro);
+        }
+        
+        // Prestar algunos libros
+        System.out.println("\n=== PRÉSTAMOS ===");
+        biblioteca.get(0).prestar();  // Cien años de soledad
+        biblioteca.get(2).prestar();  // 1984
+        
+        // Mostrar libros disponibles
+        System.out.println("\n=== LIBROS DISPONIBLES ===");
+        int disponibles = 0;
+        for(Libro libro : biblioteca) {
+            if(libro.disponible) {
+                System.out.println("- " + libro.titulo);
+                disponibles++;
+            }
+        }
+        System.out.println("Total disponibles: " + disponibles + "/" + biblioteca.size());
+        
+        // Buscar libros por autor
+        System.out.println("\n=== BUSCAR POR AUTOR: 'Gabriel García Márquez' ===");
+        for(Libro libro : biblioteca) {
+            if(libro.autor.equals("Gabriel García Márquez")) {
+                System.out.println("Encontrado: " + libro);
+            }
+        }
+    }
+}
+```
+
+Ejemplo 5: ArrayList para gestión de tareas (To-Do List)
+
+```java
+/**
+ * Sistema de gestión de tareas pendientes (To-Do List)
+ */
+import java.util.ArrayList;
+import java.util.Scanner;
+
+class Tarea {
+    String descripcion;
+    boolean completada;
+    int prioridad;  // 1: Alta, 2: Media, 3: Baja
+    
+    public Tarea(String descripcion, int prioridad) {
+        this.descripcion = descripcion;
+        this.prioridad = prioridad;
+        this.completada = false;
+    }
+    
+    public void marcarCompletada() {
+        this.completada = true;
+    }
+    
+    public String getPrioridadTexto() {
+        switch(prioridad) {
+            case 1: return "Alta";
+            case 2: return "Media";
+            case 3: return "Baja";
+            default: return "Desconocida";
+        }
+    }
+    
+    @Override
+    public String toString() {
+        String estado = completada ? "[✓]" : "[ ]";
+        return estado + " " + descripcion + " - Prioridad: " + getPrioridadTexto();
+    }
+}
+
+public class Ejemplo5ArrayList {
+    public static void main(String[] args) {
+        ArrayList<Tarea> tareas = new ArrayList<>();
+        Scanner scanner = new Scanner(System.in);
+        
+        // Tareas iniciales
+        tareas.add(new Tarea("Comprar víveres", 1));
+        tareas.add(new Tarea("Estudiar para examen", 1));
+        tareas.add(new Tarea("Hacer ejercicio", 2));
+        tareas.add(new Tarea("Llamar al médico", 3));
+        tareas.add(new Tarea("Leer libro", 3));
+        
+        int opcion;
+        do {
+            System.out.println("\n=== GESTIÓN DE TAREAS ===");
+            System.out.println("1. Ver todas las tareas");
+            System.out.println("2. Agregar nueva tarea");
+            System.out.println("3. Marcar tarea como completada");
+            System.out.println("4. Ver tareas pendientes");
+            System.out.println("5. Ver tareas por prioridad");
+            System.out.println("6. Eliminar tarea completada");
+            System.out.println("0. Salir");
+            System.out.print("Seleccione una opción: ");
+            opcion = scanner.nextInt();
+            scanner.nextLine();  // Limpiar buffer
+            
+            switch(opcion) {
+                case 1:
+                    System.out.println("\n=== TODAS LAS TAREAS ===");
+                    for(int i = 0; i < tareas.size(); i++) {
+                        System.out.println((i+1) + ". " + tareas.get(i));
+                    }
+                    break;
+                    
+                case 2:
+                    System.out.print("Descripción de la tarea: ");
+                    String desc = scanner.nextLine();
+                    System.out.print("Prioridad (1=Alta, 2=Media, 3=Baja): ");
+                    int prio = scanner.nextInt();
+                    tareas.add(new Tarea(desc, prio));
+                    System.out.println("¡Tarea agregada!");
+                    break;
+                    
+                case 3:
+                    System.out.print("Número de tarea a completar: ");
+                    int num = scanner.nextInt() - 1;
+                    if(num >= 0 && num < tareas.size()) {
+                        tareas.get(num).marcarCompletada();
+                        System.out.println("Tarea marcada como completada");
+                    } else {
+                        System.out.println("Número de tarea inválido");
+                    }
+                    break;
+                    
+                case 4:
+                    System.out.println("\n=== TAREAS PENDIENTES ===");
+                    int pendientes = 0;
+                    for(int i = 0; i < tareas.size(); i++) {
+                        if(!tareas.get(i).completada) {
+                            System.out.println((i+1) + ". " + tareas.get(i));
+                            pendientes++;
+                        }
+                    }
+                    System.out.println("Total pendientes: " + pendientes);
+                    break;
+                    
+                case 5:
+                    System.out.print("Prioridad a filtrar (1=Alta, 2=Media, 3=Baja): ");
+                    int filtro = scanner.nextInt();
+                    System.out.println("\n=== TAREAS CON PRIORIDAD " + 
+                                     (filtro==1?"ALTA":filtro==2?"MEDIA":"BAJA") + " ===");
+                    for(Tarea t : tareas) {
+                        if(t.prioridad == filtro) {
+                            System.out.println("- " + t);
+                        }
+                    }
+                    break;
+                    
+                case 6:
+                    // Eliminar tareas completadas
+                    ArrayList<Tarea> nuevasTareas = new ArrayList<>();
+                    for(Tarea t : tareas) {
+                        if(!t.completada) {
+                            nuevasTareas.add(t);
+                        }
+                    }
+                    int eliminadas = tareas.size() - nuevasTareas.size();
+                    tareas = nuevasTareas;
+                    System.out.println("Eliminadas " + eliminadas + " tareas completadas");
+                    break;
+            }
+            
+        } while(opcion != 0);
+        
+        System.out.println("¡Hasta luego!");
+        scanner.close();
+    }
+}
+```
+
+---
+
+4. ORDENAMIENTO DE DATOS
+
+Concepto:
+
+El ordenamiento es el proceso de organizar datos en un orden específico (ascendente o descendente).
+
+Algoritmos comunes:
+
+1. Bubble Sort (Ordenamiento de burbuja)
+2. Selection Sort (Ordenamiento por selección)
+3. Insertion Sort (Ordenamiento por inserción)
+4. Quick Sort (Ordenamiento rápido)
+5. Merge Sort (Ordenamiento por mezcla)
+
+---
+
+Ejemplo 1: Bubble Sort (Ordenamiento de burbuja)
+
+```java
+/**
+ * Implementar Bubble Sort para ordenar un array de enteros
+ * Compara elementos adyacentes y los intercambia si están en orden incorrecto
+ */
+public class BubbleSortEjemplo {
+    public static void main(String[] args) {
+        int[] numeros = {64, 34, 25, 12, 22, 11, 90, 45, 78, 3};
+        
+        System.out.println("Array original:");
+        imprimirArray(numeros);
+        
+        bubbleSort(numeros);
+        
+        System.out.println("\nArray ordenado (ascendente):");
+        imprimirArray(numeros);
+        
+        // Bubble Sort descendente
+        int[] numeros2 = {64, 34, 25, 12, 22, 11, 90, 45, 78, 3};
+        bubbleSortDescendente(numeros2);
+        
+        System.out.println("\nArray ordenado (descendente):");
+        imprimirArray(numeros2);
+    }
+    
+    public static void bubbleSort(int[] arr) {
+        int n = arr.length;
+        boolean intercambiado;
+        int iteraciones = 0;
+        int intercambios = 0;
+        
+        for(int i = 0; i < n-1; i++) {
+            intercambiado = false;
+            System.out.println("\nIteración " + (i+1) + ":");
+            
+            for(int j = 0; j < n-i-1; j++) {
+                iteraciones++;
+                if(arr[j] > arr[j+1]) {
+                    // Intercambiar elementos
+                    int temp = arr[j];
+                    arr[j] = arr[j+1];
+                    arr[j+1] = temp;
+                    intercambiado = true;
+                    intercambios++;
+                    System.out.println("  Intercambio " + arr[j] + " y " + arr[j+1]);
+                }
+            }
+            
+            System.out.print("  Estado actual: ");
+            imprimirArray(arr);
+            
+            // Si no hubo intercambios, el array ya está ordenado
+            if(!intercambiado) {
+                break;
+            }
+        }
+        
+        System.out.println("\nTotal iteraciones: " + iteraciones);
+        System.out.println("Total intercambios: " + intercambios);
+    }
+    
+    public static void bubbleSortDescendente(int[] arr) {
+        int n = arr.length;
+        for(int i = 0; i < n-1; i++) {
+            for(int j = 0; j < n-i-1; j++) {
+                if(arr[j] < arr[j+1]) {
+                    // Intercambiar elementos
+                    int temp = arr[j];
+                    arr[j] = arr[j+1];
+                    arr[j+1] = temp;
+                }
+            }
+        }
+    }
+    
+    public static void imprimirArray(int[] arr) {
+        for(int num : arr) {
+            System.out.print(num + " ");
+        }
+        System.out.println();
+    }
+}
+```
+
+Ejemplo 2: Selection Sort (Ordenamiento por selección)
+
+```java
+/**
+ * Implementar Selection Sort para ordenar un array de nombres
+ * Encuentra el elemento mínimo y lo coloca en la posición correcta
+ */
+public class SelectionSortEjemplo {
+    public static void main(String[] args) {
+        String[] nombres = {"Carlos", "Ana", "Elena", "David", "Beatriz", 
+                           "Fernando", "Gabriela", "Hugo"};
+        
+        System.out.println("Array original de nombres:");
+        imprimirArray(nombres);
+        
+        selectionSortStrings(nombres);
+        
+        System.out.println("\nNombres ordenados alfabéticamente:");
+        imprimirArray(nombres);
+        
+        // Selection Sort con números
+        int[] edades = {25, 18, 32, 21, 45, 29, 19, 38};
+        
+        System.out.println("\n\nArray original de edades:");
+        imprimirArray(edades);
+        
+        selectionSortInt(edades);
+        
+        System.out.println("Edades ordenadas:");
+        imprimirArray(edades);
+    }
+    
+    public static void selectionSortStrings(String[] arr) {
+        int n = arr.length;
+        int comparaciones = 0;
+        int intercambios = 0;
+        
+        for(int i = 0; i < n-1; i++) {
+            System.out.println("\nIteración " + (i+1) + ":");
+            int minIndex = i;
+            
+            for(int j = i+1; j < n; j++) {
+                comparaciones++;
+                if(arr[j].compareTo(arr[minIndex]) < 0) {
+                    minIndex = j;
+                }
+            }
+            
+            if(minIndex != i) {
+                // Intercambiar elementos
+                String temp = arr[i];
+                arr[i] = arr[minIndex];
+                arr[minIndex] = temp;
+                intercambios++;
+                System.out.println("  Intercambio: " + arr[i] + " ↔ " + arr[minIndex]);
+            }
+            
+            System.out.print("  Estado actual: ");
+            imprimirArray(arr);
+        }
+        
+        System.out.println("\nTotal comparaciones: " + comparaciones);
+        System.out.println("Total intercambios: " + intercambios);
+    }
+    
+    public static void selectionSortInt(int[] arr) {
+        int n = arr.length;
+        
+        for(int i = 0; i < n-1; i++) {
+            int minIndex = i;
+            
+            for(int j = i+1; j < n; j++) {
+                if(arr[j] < arr[minIndex]) {
+                    minIndex = j;
+                }
+            }
+            
+            if(minIndex != i) {
+                // Intercambiar elementos
+                int temp = arr[i];
+                arr[i] = arr[minIndex];
+                arr[minIndex] = temp;
+            }
+        }
+    }
+    
+    public static void imprimirArray(String[] arr) {
+        for(String str : arr) {
+            System.out.print(str + " ");
+        }
+        System.out.println();
+    }
+    
+    public static void imprimirArray(int[] arr) {
+        for(int num : arr) {
+            System.out.print(num + " ");
+        }
+        System.out.println();
+    }
+}
+```
+
+Ejemplo 3: Insertion Sort (Ordenamiento por inserción)
+
+```java
+/**
+ * Implementar Insertion Sort para ordenar calificaciones
+ * Construye el array ordenado uno por uno insertando elementos en posición correcta
+ */
+public class InsertionSortEjemplo {
+    public static void main(String[] args) {
+        double[] calificaciones = {8.5, 6.2, 9.1, 7.8, 5.5, 8.9, 6.7, 9.5, 7.2, 8.0};
+        
+        System.out.println("Calificaciones originales:");
+        imprimirArray(calificaciones);
+        
+        insertionSort(calificaciones);
+        
+        System.out.println("\nCalificaciones ordenadas:");
+        imprimirArray(calificaciones);
+        
+        // Insertion Sort con objetos
+        System.out.println("\n\n=== ORDENAR PRODUCTOS POR PRECIO ===");
+        Producto[] productos = {
+            new Producto("Laptop", 1200.00),
+            new Producto("Mouse", 25.50),
+            new Producto("Teclado", 45.75),
+            new Producto("Monitor", 320.00),
+            new Producto("USB", 15.99),
+            new Producto("Audífonos", 80.25)
+        };
+        
+        System.out.println("\nProductos sin ordenar:");
+        imprimirProductos(productos);
+        
+        insertionSortProductos(productos);
+        
+        System.out.println("\nProductos ordenados por precio (ascendente):");
+        imprimirProductos(productos);
+    }
+    
+    public static void insertionSort(double[] arr) {
+        int n = arr.length;
+        int comparaciones = 0;
+        int inserciones = 0;
+        
+        for(int i = 1; i < n; i++) {
+            double key = arr[i];
+            int j = i - 1;
+            
+            System.out.println("\nIteración " + i + ": Insertando " + key);
+            
+            // Mover elementos mayores que key una posición adelante
+            while(j >= 0 && arr[j] > key) {
+                comparaciones++;
+                arr[j + 1] = arr[j];
+                j = j - 1;
+            }
+            arr[j + 1] = key;
+            inserciones++;
+            
+            System.out.print("  Estado actual: ");
+            imprimirArray(arr);
+        }
+        
+        System.out.println("\nTotal comparaciones: " + comparaciones);
+        System.out.println("Total inserciones: " + inserciones);
+    }
+    
+    public static void insertionSortProductos(Producto[] arr) {
+        int n = arr.length;
+        
+        for(int i = 1; i < n; i++) {
+            Producto key = arr[i];
+            int j = i - 1;
+            
+            while(j >= 0 && arr[j].precio > key.precio) {
+                arr[j + 1] = arr[j];
+                j = j - 1;
+            }
+            arr[j + 1] = key;
+        }
+    }
+    
+    public static void imprimirArray(double[] arr) {
+        for(double num : arr) {
+            System.out.print(num + " ");
+        }
+        System.out.println();
+    }
+    
+    public static void imprimirProductos(Producto[] arr) {
+        System.out.println("Producto\t\tPrecio");
+        System.out.println("---------------------------");
+        for(Producto p : arr) {
+            System.out.printf("%-15s\t$%.2f%n", p.nombre, p.precio);
+        }
+    }
+}
+
+class Producto {
+    String nombre;
+    double precio;
+    
+    public Producto(String nombre, double precio) {
+        this.nombre = nombre;
+        this.precio = precio;
+    }
+}
+```
+
+Ejemplo 4: Quick Sort (Ordenamiento rápido)
+
+```java
+/**
+ * Implementar Quick Sort para ordenar un array de números enteros
+ * Divide y vencerás: selecciona un pivote y particiona el array
+ */
+public class QuickSortEjemplo {
+    public static void main(String[] args) {
+        int[] numeros = {10, 7, 8, 9, 1, 5, 3, 6, 2, 4};
+        
+        System.out.println("Array original:");
+        imprimirArray(numeros);
+        
+        int comparaciones = quickSort(numeros, 0, numeros.length - 1, 0);
+        
+        System.out.println("\nArray ordenado:");
+        imprimirArray(numeros);
+        System.out.println("Total comparaciones: " + comparaciones);
+        
+        // Quick Sort con palabras
+        System.out.println("\n\n=== ORDENAR PALABRAS ===");
+        String[] palabras = {"manzana", "banana", "cereza", "dátil", "fresa", 
+                            "uva", "kiwi", "limón", "mango", "naranja"};
+        
+        System.out.println("\nPalabras originales:");
+        imprimirArray(palabras);
+        
+        quickSortStrings(palabras, 0, palabras.length - 1);
+        
+        System.out.println("\nPalabras ordenadas alfabéticamente:");
+        imprimirArray(palabras);
+    }
+    
+    public static int quickSort(int[] arr, int low, int high, int comparaciones) {
+        if(low < high) {
+            System.out.println("\nParticionando desde índice " + low + " hasta " + high);
+            System.out.print("Subarray actual: ");
+            imprimirSubarray(arr, low, high);
+            
+            int pi = partition(arr, low, high);
+            comparaciones += (high - low);  // Estimación de comparaciones
+            
+            System.out.println("Pivote en posición " + pi + " (valor: " + arr[pi] + ")");
+            System.out.print("Después de partición: ");
+            imprimirSubarray(arr, low, high);
+            
+            comparaciones = quickSort(arr, low, pi - 1, comparaciones);
+            comparaciones = quickSort(arr, pi + 1, high, comparaciones);
+        }
+        return comparaciones;
+    }
+    
+    public static int partition(int[] arr, int low, int high) {
+        int pivot = arr[high];
+        int i = low - 1;
+        
+        for(int j = low; j < high; j++) {
+            if(arr[j] < pivot) {
+                i++;
+                // Intercambiar arr[i] y arr[j]
+                int temp = arr[i];
+                arr[i] = arr[j];
+                arr[j] = temp;
+            }
+        }
+        
+        // Intercambiar arr[i+1] y arr[high] (pivote)
+        int temp = arr[i + 1];
+        arr[i + 1] = arr[high];
+        arr[high] = temp;
+        
+        return i + 1;
+    }
+    
+    public static void quickSortStrings(String[] arr, int low, int high) {
+        if(low < high) {
+            int pi = partitionStrings(arr, low, high);
+            quickSortStrings(arr, low, pi - 1);
+            quickSortStrings(arr, pi + 1, high);
+        }
+    }
+    
+    public static int partitionStrings(String[] arr, int low, int high) {
+        String pivot = arr[high];
+        int i = low - 1;
+        
+        for(int j = low; j < high; j++) {
+            if(arr[j].compareTo(pivot) < 0) {
+                i++;
+                // Intercambiar arr[i] y arr[j]
+                String temp = arr[i];
+                arr[i] = arr[j];
+                arr[j] = temp;
+            }
+        }
+        
+        // Intercambiar arr[i+1] y arr[high] (pivote)
+        String temp = arr[i + 1];
+        arr[i + 1] = arr[high];
+        arr[high] = temp;
+        
+        return i + 1;
+    }
+    
+    public static void imprimirArray(int[] arr) {
+        for(int num : arr) {
+            System.out.print(num + " ");
+        }
+        System.out.println();
+    }
+    
+    public static void imprimirArray(String[] arr) {
+        for(String str : arr) {
+            System.out.print(str + " ");
+        }
+        System.out.println();
+    }
+    
+    public static void imprimirSubarray(int[] arr, int low, int high) {
+        for(int i = low; i <= high; i++) {
+            System.out.print(arr[i] + " ");
+        }
+        System.out.println();
+    }
+}
+```
+
+Ejemplo 5: Merge Sort (Ordenamiento por mezcla) y comparación
+
+```java
+/**
+ * Implementar Merge Sort y comparar diferentes algoritmos de ordenamiento
+ * Divide el array en mitades, ordena cada mitad y luego las combina
+ */
+import java.util.Arrays;
+import java.util.Random;
+
+public class MergeSortEjemplo {
+    public static void main(String[] args) {
+        int[] numeros = {38, 27, 43, 3, 9, 82, 10, 15, 1, 67};
+        
+        System.out.println("=== MERGE SORT ===");
+        System.out.println("Array original:");
+        imprimirArray(numeros);
+        
+        int comparaciones = mergeSort(numeros, 0, numeros.length - 1, 0);
+        
+        System.out.println("\nArray ordenado:");
+        imprimirArray(numeros);
+        System.out.println("Total comparaciones: " + comparaciones);
+        
+        // Comparación de algoritmos
+        System.out.println("\n\n=== COMPARACIÓN DE ALGORITMOS ===");
+        compararAlgoritmos();
+    }
+    
+    public static int mergeSort(int[] arr, int left, int right, int comparaciones) {
+        if(left < right) {
+            System.out.println("\nDividiendo: [" + left + "..." + right + "]");
+            
+            int middle = left + (right - left) / 2;
+            
+            comparaciones = mergeSort(arr, left, middle, comparaciones);
+            comparaciones = mergeSort(arr, middle + 1, right, comparaciones);
+            
+            System.out.println("Combinando: [" + left + "..." + middle + 
+                             "] y [" + (middle+1) + "..." + right + "]");
+            comparaciones = merge(arr, left, middle, right, comparaciones);
+            
+            System.out.print("Estado actual: ");
+            imprimirArray(arr);
+        }
+        return comparaciones;
+    }
+    
+    public static int merge(int[] arr, int left, int middle, int right, int comparaciones) {
+        int n1 = middle - left + 1;
+        int n2 = right - middle;
+        
+        int[] L = new int[n1];
+        int[] R = new int[n2];
+        
+        // Copiar datos a arrays temporales
+        for(int i = 0; i < n1; i++) {
+            L[i] = arr[left + i];
+        }
+        for(int j = 0; j < n2; j++) {
+            R[j] = arr[middle + 1 + j];
+        }
+        
+        // Combinar los arrays temporales
+        int i = 0, j = 0;
+        int k = left;
+        
+        while(i < n1 && j < n2) {
+            comparaciones++;
+            if(L[i] <= R[j]) {
+                arr[k] = L[i];
+                i++;
+            } else {
+                arr[k] = R[j];
+                j++;
+            }
+            k++;
+        }
+        
+        // Copiar elementos restantes de L[]
+        while(i < n1) {
+            arr[k] = L[i];
+            i++;
+            k++;
+        }
+        
+        // Copiar elementos restantes de R[]
+        while(j < n2) {
+            arr[k] = R[j];
+            j++;
+            k++;
+        }
+        
+        return comparaciones;
+    }
+    
+    public static void compararAlgoritmos() {
+        Random rand = new Random();
+        int tamanio = 10000;
+        int[] arr1 = new int[tamanio];
+        int[] arr2 = new int[tamanio];
+        int[] arr3 = new int[tamanio];
+        int[] arr4 = new int[tamanio];
+        
+        // Generar array aleatorio
+        for(int i = 0; i < tamanio; i++) {
+            int num = rand.nextInt(10000);
+            arr1[i] = num;
+            arr2[i] = num;
+            arr3[i] = num;
+            arr4[i] = num;
+        }
+        
+        System.out.println("Probando con array de " + tamanio + " elementos aleatorios\n");
+        
+        // Bubble Sort
+        long inicio = System.currentTimeMillis();
+        bubbleSort(arr1);
+        long fin = System.currentTimeMillis();
+        System.out.println("Bubble Sort: " + (fin - inicio) + " ms");
+        
+        // Selection Sort
+        inicio = System.currentTimeMillis();
+        selectionSort(arr2);
+        fin = System.currentTimeMillis();
+        System.out.println("Selection Sort: " + (fin - inicio) + " ms");
+        
+        // Insertion Sort
+        inicio = System.currentTimeMillis();
+        insertionSort(arr3);
+        fin = System.currentTimeMillis();
+        System.out.println("Insertion Sort: " + (fin - inicio) + " ms");
+        
+        // Java Arrays.sort() (QuickSort optimizado)
+        inicio = System.currentTimeMillis();
+        Arrays.sort(arr4);
+        fin = System.currentTimeMillis();
+        System.out.println("Arrays.sort(): " + (fin - inicio) + " ms");
+        
+        // Verificar que todos están ordenados
+        boolean correcto = true;
+        for(int i = 0; i < tamanio-1; i++) {
+            if(arr4[i] > arr4[i+1]) {
+                correcto = false;
+                break;
+            }
+        }
+        System.out.println("\nVerificación: " + (correcto ? "✓ Todos ordenados correctamente" : "✗ Error en ordenamiento"));
+    }
+    
+    public static void bubbleSort(int[] arr) {
+        int n = arr.length;
+        for(int i = 0; i < n-1; i++) {
+            for(int j = 0; j < n-i-1; j++) {
+                if(arr[j] > arr[j+1]) {
+                    int temp = arr[j];
+                    arr[j] = arr[j+1];
+                    arr[j+1] = temp;
+                }
+            }
+        }
+    }
+    
+    public static void selectionSort(int[] arr) {
+        int n = arr.length;
+        for(int i = 0; i < n-1; i++) {
+            int minIndex = i;
+            for(int j = i+1; j < n; j++) {
+                if(arr[j] < arr[minIndex]) {
+                    minIndex = j;
+                }
+            }
+            int temp = arr[i];
+            arr[i] = arr[minIndex];
+            arr[minIndex] = temp;
+        }
+    }
+    
+    public static void insertionSort(int[] arr) {
+        int n = arr.length;
+        for(int i = 1; i < n; i++) {
+            int key = arr[i];
+            int j = i - 1;
+            while(j >= 0 && arr[j] > key) {
+                arr[j + 1] = arr[j];
+                j = j - 1;
+            }
+            arr[j + 1] = key;
+        }
+    }
+    
+    public static void imprimirArray(int[] arr) {
+        if(arr.length <= 20) {
+            for(int num : arr) {
+                System.out.print(num + " ");
+            }
+            System.out.println();
+        } else {
+            System.out.println("Array demasiado grande para imprimir (" + 
+                             arr.length + " elementos)");
+        }
+    }
+}
+```
+
+---
+
+RESUMEN Y COMPARACIONES
+
+Arrays vs ArrayLists:
+
+Característica Array ArrayList
+Tamaño Fijo Dinámico
+Rendimiento Más rápido Más lento (boxing/unboxing)
+Flexibilidad Menos flexible Más flexible
+Métodos Básicos Muchos métodos útiles
+Tipado Fuerte Fuerte con genéricos
+
+Algoritmos de Ordenamiento:
+
+Algoritmo Complejidad Mejor Caso Peor Caso Estable Uso
+Bubble Sort O(n²) O(n) O(n²) Sí Pequeños datasets
+Selection Sort O(n²) O(n²) O(n²) No Pequeños datasets
+Insertion Sort O(n²) O(n) O(n²) Sí Datos casi ordenados
+Quick Sort O(n log n) O(n log n) O(n²) No General purpose
+Merge Sort O(n log n) O(n log n) O(n log n) Sí Grandes datasets
+
+Recomendaciones de Uso:
+
+1. Arrays: Cuando el tamaño es conocido y fijo, o se necesita máximo rendimiento
+2. ArrayLists: Cuando el tamaño es variable o se necesita flexibilidad
+3. Bubble/Selection Sort: Solo para arrays muy pequeños (<100 elementos)
+4. Insertion Sort: Para arrays pequeños o casi ordenados
+5. Quick Sort: Para la mayoría de aplicaciones generales
+6. Merge Sort: Para grandes volúmenes de datos o cuando se necesita estabilidad
+
+Este tema completo cubre desde lo básico hasta conceptos avanzados, con ejemplos prácticos y aplicaciones reales de cada estructura y algoritmo.
