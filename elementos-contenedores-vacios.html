@@ -1,0 +1,310 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Elementos contenedores y vacíos - HTML</title>
+</head>
+<body>
+
+    <header>
+        <h1>Elementos contenedores y vacíos</h1>
+        <p>
+            En esta página aprenderás a distinguir los elementos HTML
+            que pueden contener contenido de aquellos que no lo admiten.
+        </p>
+    </header>
+
+    <hr>
+
+    <main>
+        <section>
+            <h2>1. Elementos contenedores</h2>
+
+            <p>
+                Los elementos contenedores tienen una etiqueta de apertura
+                y una etiqueta de cierre. Pueden incluir texto y otros
+                elementos HTML, según las reglas de cada elemento.
+            </p>
+
+            <h3>Ejemplo de párrafo: &lt;p&gt;</h3>
+
+            <p>
+                Este es un párrafo. Su contenido se encuentra entre
+                las etiquetas de apertura y cierre.
+            </p>
+
+            <h3>Ejemplo de encabezado: &lt;h2&gt;</h3>
+
+            <h2>Este es un encabezado de segundo nivel</h2>
+
+            <h3>Ejemplo de agrupación: &lt;div&gt;</h3>
+
+            <div>
+                <h4>Contenido dentro de un div</h4>
+                <p>
+                    El elemento div permite agrupar contenido sin añadir
+                    un significado semántico específico.
+                </p>
+            </div>
+
+            <h3>Ejemplo de enlace: &lt;a&gt;</h3>
+
+            <p>
+                Visita
+                <a href="https://www.wikipedia.org/"
+                   target="_blank"
+                   rel="noopener noreferrer">
+                    Wikipedia
+                </a>
+                para consultar información.
+            </p>
+        </section>
+
+        <hr>
+
+        <section>
+            <h2>2. Elementos vacíos</h2>
+
+            <p>
+                Los elementos vacíos no admiten contenido interno
+                y no utilizan etiquetas de cierre en HTML.
+            </p>
+
+            <h3>Salto de línea: &lt;br&gt;</h3>
+
+            <p>
+                Primera línea.<br>
+                Segunda línea después del salto.<br>
+                Tercera línea.
+            </p>
+
+            <h3>Separación temática: &lt;hr&gt;</h3>
+
+            <p>Primer tema.</p>
+            <hr>
+            <p>Segundo tema.</p>
+
+            <h3>Imagen: &lt;img&gt;</h3>
+
+            <p>
+                El atributo src indica la ubicación de la imagen,
+                mientras que alt proporciona un texto alternativo.
+            </p>
+
+            <img
+                src="https://placehold.co/300x180?text=Imagen+HTML"
+                alt="Imagen ilustrativa para aprender HTML"
+                width="300"
+                height="180"
+            >
+
+            <h3>Campo de entrada: &lt;input&gt;</h3>
+
+            <p>
+                Aunque input es un elemento vacío, puede mostrar
+                un valor inicial mediante el atributo value.
+            </p>
+
+            <label for="nombre">Nombre:</label>
+            <input
+                type="text"
+                id="nombre"
+                name="nombre"
+                value="Juan"
+            >
+
+            <p>
+                En este ejemplo, el texto Juan se establece mediante
+                el atributo value y no como contenido interno.
+            </p>
+        </section>
+
+        <hr>
+
+        <section>
+            <h2>3. Elementos interactivos nativos</h2>
+
+            <h3>Detalles desplegables: &lt;details&gt; y &lt;summary&gt;</h3>
+
+            <details>
+                <summary>¿Qué es un elemento contenedor?</summary>
+                <p>
+                    Es un elemento que puede incluir contenido interno,
+                    como texto u otros elementos permitidos por HTML.
+                </p>
+            </details>
+
+            <details>
+                <summary>¿Qué es un elemento vacío?</summary>
+                <p>
+                    Es un elemento que no admite contenido interno
+                    y no utiliza una etiqueta de cierre en HTML.
+                </p>
+            </details>
+
+            <h3>Opciones sugeridas: &lt;datalist&gt;</h3>
+
+            <label for="lenguaje">Lenguaje de programación:</label>
+
+            <input
+                type="text"
+                id="lenguaje"
+                name="lenguaje"
+                list="lenguajes"
+                placeholder="Escribe o selecciona una opción"
+            >
+
+            <datalist id="lenguajes">
+                <option value="JavaScript">
+                <option value="Python">
+                <option value="PHP">
+                <option value="Java">
+            </datalist>
+
+            <p>
+                Datalist proporciona sugerencias para el campo de entrada.
+                El usuario también puede escribir otro valor.
+            </p>
+        </section>
+
+        <hr>
+
+        <section>
+            <h2>4. Indicadores visuales y métricas</h2>
+
+            <h3>Medida: &lt;meter&gt;</h3>
+
+            <p>Ejemplo de nivel de batería:</p>
+
+            <meter min="0" max="100" value="75">
+                75 de 100
+            </meter>
+
+            <p>75 %</p>
+
+            <h3>Progreso: &lt;progress&gt;</h3>
+
+            <p>Ejemplo de una tarea completada parcialmente:</p>
+
+            <progress value="60" max="100">
+                60 %
+            </progress>
+
+            <p>60 % completado.</p>
+        </section>
+
+        <hr>
+
+        <section>
+            <h2>5. Formateo de texto y legibilidad</h2>
+
+            <h3>Texto resaltado: &lt;mark&gt;</h3>
+
+            <p>
+                HTML permite
+                <mark>resaltar información importante</mark>
+                dentro de un texto.
+            </p>
+
+            <h3>Punto de salto: &lt;wbr&gt;</h3>
+
+            <p>
+                Esta es una palabra o dirección muy larga:
+                https://ejemplo.com/documentacion<wbr>/desarrollo<wbr>/html
+            </p>
+
+            <p>
+                Wbr indica un lugar donde el navegador puede dividir
+                una palabra o secuencia si necesita ajustar el texto.
+            </p>
+        </section>
+
+        <hr>
+
+        <section>
+            <h2>6. Organización de opciones</h2>
+
+            <h3>Grupos de opciones: &lt;optgroup&gt;</h3>
+
+            <label for="curso">Selecciona un curso:</label>
+
+            <select id="curso" name="curso">
+                <option value="">Selecciona una opción</option>
+
+                <optgroup label="Desarrollo web">
+                    <option value="html">HTML</option>
+                    <option value="css">CSS</option>
+                    <option value="javascript">JavaScript</option>
+                </optgroup>
+
+                <optgroup label="Programación">
+                    <option value="python">Python</option>
+                    <option value="php">PHP</option>
+                </optgroup>
+            </select>
+        </section>
+
+        <hr>
+
+        <section>
+            <h2>7. Información de contacto</h2>
+
+            <h3>Elemento &lt;address&gt;</h3>
+
+            <address>
+                Contacto del responsable de esta página:<br>
+                Correo:
+                <a href="mailto:contacto@ejemplo.com">
+                    contacto@ejemplo.com
+                </a>
+            </address>
+
+            <p>
+                Address se utiliza para representar información de contacto
+                    relacionada con el documento o con el artículo que lo contiene.
+            </p>
+        </section>
+
+        <hr>
+
+        <section>
+            <h2>8. Resumen</h2>
+
+            <h3>Elementos contenedores</h3>
+
+            <ul>
+                <li><code>&lt;p&gt;</code>: párrafo.</li>
+                <li><code>&lt;div&gt;</code>: agrupación genérica.</li>
+                <li><code>&lt;a&gt;</code>: enlace.</li>
+                <li><code>&lt;details&gt;</code>: sección desplegable.</li>
+                <li><code>&lt;summary&gt;</code>: título de details.</li>
+                <li><code>&lt;datalist&gt;</code>: lista de sugerencias.</li>
+                <li><code>&lt;meter&gt;</code>: medida dentro de un rango.</li>
+                <li><code>&lt;progress&gt;</code>: progreso de una tarea.</li>
+                <li><code>&lt;mark&gt;</code>: texto resaltado.</li>
+                <li><code>&lt;optgroup&gt;</code>: grupo de opciones.</li>
+                <li><code>&lt;address&gt;</code>: información de contacto.</li>
+            </ul>
+
+            <h3>Elementos vacíos</h3>
+
+            <ul>
+                <li><code>&lt;br&gt;</code>: salto de línea.</li>
+                <li><code>&lt;hr&gt;</code>: separación temática.</li>
+                <li><code>&lt;img&gt;</code>: imagen.</li>
+                <li><code>&lt;input&gt;</code>: campo de entrada.</li>
+                <li><code>&lt;wbr&gt;</code>: posible punto de salto de línea.</li>
+            </ul>
+        </section>
+    </main>
+
+    <hr>
+
+    <footer>
+        <p>Ejemplo educativo del manual de desarrollo web.</p>
+        <p>HTML: estructura de las páginas web.</p>
+    </footer>
+
+</body>
+</html>
