@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0">
+
+    <meta
+        name="description"
+        content="Ejemplo educativo sobre atributos data-* y metadatos HTML.">
+
+    <meta name="author" content="Manual de HTML">
+
+    <title>Atributos data-* y metadatos</title>
+</head>
+<body>
+
+    <header>
+        <h1>Atributos data-* y metadatos</h1>
+        <p>Aprende a añadir datos e información descriptiva a tus páginas.</p>
+    </header>
+
+    <main>
+        <section>
+            <h2>Catálogo</h2>
+
+            <article
+                data-producto="libro"
+                data-precio="35.90">
+
+                <h3>Libro de programación</h3>
+                <p>Precio: S/ 35.90</p>
+
+                <button type="button" id="mostrar-datos">
+                    Mostrar datos
+                </button>
+            </article>
+
+            <p id="resultado" aria-live="polite">
+                Aquí aparecerán los datos del producto.
+            </p>
+        </section>
+    </main>
+
+    <footer>
+        <p>Ejemplo educativo de HTML.</p>
+    </footer>
+
+    <script>
+        const articulo = document.querySelector("article");
+        const boton = document.getElementById("mostrar-datos");
+        const resultado = document.getElementById("resultado");
+
+        boton.addEventListener("click", function() {
+            const nombre = articulo.dataset.producto;
+            const precio = Number(articulo.dataset.precio);
+
+            resultado.textContent =
+                "Producto: " + nombre +
+                " | Precio: S/ " + precio.toFixed(2);
+        });
+    </script>
+
+</body>
+</html>
