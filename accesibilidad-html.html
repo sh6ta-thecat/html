@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Accesibilidad básica en HTML</title>
+    <meta
+        name="description"
+        content="Ejemplo educativo de buenas prácticas de accesibilidad HTML.">
+</head>
+<body>
+
+    <header>
+        <h1>Accesibilidad básica en HTML</h1>
+
+        <p>
+            Ejemplo de estructura semántica, enlaces descriptivos
+            y formularios etiquetados.
+        </p>
+    </header>
+
+    <nav aria-label="Navegación principal">
+        <a href="#contenido">Contenido</a>
+        <a href="#formulario">Formulario</a>
+        <a href="#recursos">Recursos</a>
+    </nav>
+
+    <main>
+        <section id="contenido">
+            <h2>Contenido principal</h2>
+
+            <p>
+                Una página accesible facilita la navegación
+                y la comprensión de la información.
+            </p>
+
+            <figure>
+                <img
+                    src="estudiantes.jpg"
+                    alt="Estudiantes trabajando juntos en una computadora">
+
+                <figcaption>
+                    Estudiantes colaborando en un proyecto.
+                </figcaption>
+            </figure>
+
+            <p>
+                Consulta también el
+                <a href="manual-html.html">manual de HTML para principiantes</a>.
+            </p>
+        </section>
+
+        <section id="formulario">
+            <h2>Formulario de contacto</h2>
+
+            <form action="#" method="get">
+                <p>
+                    <label for="nombre">Nombre completo:</label>
+                    <input
+                        type="text"
+                        id="nombre"
+                        name="nombre"
+                        autocomplete="name"
+                        required>
+                </p>
+
+                <p>
+                    <label for="correo">Correo electrónico:</label>
+                    <input
+                        type="email"
+                        id="correo"
+                        name="correo"
+                        autocomplete="email"
+                        required>
+                </p>
+
+                <p>
+                    <label for="mensaje">Mensaje:</label>
+                    <textarea
+                        id="mensaje"
+                        name="mensaje"
+                        rows="4"
+                        required></textarea>
+                </p>
+
+                <button type="submit">Enviar información</button>
+            </form>
+        </section>
+
+        <section id="recursos">
+            <h2>Recursos adicionales</h2>
+
+            <p>
+                Puedes revisar la
+                <a href="https://www.w3.org/WAI/">
+                    iniciativa de accesibilidad web del W3C
+                </a>.
+            </p>
+        </section>
+    </main>
+
+    <footer>
+        <p>Ejemplo educativo sobre accesibilidad web.</p>
+    </footer>
+
+</body>
+</html>
