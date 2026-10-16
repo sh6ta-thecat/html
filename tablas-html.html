@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Horario académico</title>
+
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            max-width: 900px;
+            margin: 20px auto;
+            padding: 0 16px;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+
+        caption {
+            font-size: 1.2rem;
+            font-weight: bold;
+            margin-bottom: 10px;
+        }
+
+        th,
+        td {
+            border: 1px solid #999;
+            padding: 10px;
+            text-align: left;
+        }
+
+        thead {
+            background-color: #eeeeee;
+        }
+
+        tfoot {
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+    <h1>Horario académico</h1>
+
+    <table>
+        <caption>Horario semanal de clases</caption>
+
+        <thead>
+            <tr>
+                <th scope="col">Día</th>
+                <th scope="col">Curso</th>
+                <th scope="col">Hora</th>
+                <th scope="col">Aula</th>
+            </tr>
+        </thead>
+
+        <tbody>
+            <tr>
+                <th scope="row">Lunes</th>
+                <td>Programación</td>
+                <td>08:00 - 10:00</td>
+                <td>Aula 101</td>
+            </tr>
+
+            <tr>
+                <th scope="row">Miércoles</th>
+                <td>Base de datos</td>
+                <td>10:00 - 12:00</td>
+                <td>Laboratorio 2</td>
+            </tr>
+
+            <tr>
+                <th scope="row">Viernes</th>
+                <td>Redes informáticas</td>
+                <td>08:00 - 10:00</td>
+                <td>Laboratorio 1</td>
+            </tr>
+        </tbody>
+
+        <tfoot>
+            <tr>
+                <th scope="row" colspan="2">Total de clases</th>
+                <td colspan="2">3 sesiones</td>
+            </tr>
+        </tfoot>
+    </table>
+</body>
+</html>
