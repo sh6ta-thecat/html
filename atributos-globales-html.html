@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Atributos globales de HTML</title>
+</head>
+<body>
+
+    <header id="inicio">
+        <h1 class="titulo-principal" title="Título del documento">
+            Atributos globales de HTML
+        </h1>
+
+        <p>
+            Aprende a identificar, agrupar y configurar elementos.
+        </p>
+    </header>
+
+    <main>
+        <section id="identificacion" class="seccion">
+            <h2>1. Identificación</h2>
+
+            <p id="parrafo-principal" class="texto">
+                Este párrafo tiene un identificador y una clase.
+            </p>
+
+            <p class="texto">
+                Este segundo párrafo comparte la misma clase.
+            </p>
+        </section>
+
+        <section id="edicion" class="seccion">
+            <h2>2. Edición de contenido</h2>
+
+            <p contenteditable="true">
+                Haz clic aquí para editar este texto.
+            </p>
+        </section>
+
+        <section id="navegacion" class="seccion">
+            <h2>3. Navegación por teclado</h2>
+
+            <p tabindex="0">
+                Este párrafo puede recibir el foco del teclado.
+            </p>
+
+            <button type="button" accesskey="g">
+                Botón de ejemplo
+            </button>
+        </section>
+
+        <section id="datos" class="seccion">
+            <h2>4. Datos personalizados</h2>
+
+            <button
+                type="button"
+                data-producto="cuaderno"
+                data-precio="12.50">
+                Producto de ejemplo
+            </button>
+        </section>
+
+        <section id="idiomas" class="seccion">
+            <h2>5. Idiomas</h2>
+
+            <p>
+                Esta página está escrita en español.
+                <span lang="en">Welcome!</span>
+            </p>
+        </section>
+
+        <section id="contenido-oculto" class="seccion">
+            <h2>6. Contenido oculto</h2>
+
+            <p hidden>
+                Este párrafo no se muestra normalmente.
+            </p>
+
+            <p>
+                El párrafo anterior contiene el atributo hidden.
+            </p>
+        </section>
+    </main>
+
+    <footer>
+        <p>Manual de HTML para principiantes.</p>
+        <a href="#inicio">Volver al inicio</a>
+    </footer>
+
+</body>
+</html>
