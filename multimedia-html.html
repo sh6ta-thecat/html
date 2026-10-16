@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Recursos multimedia</title>
+
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        video,
+        audio {
+            display: block;
+            max-width: 100%;
+            margin-top: 10px;
+        }
+
+        video {
+            height: auto;
+        }
+
+        section {
+            margin-bottom: 30px;
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <h1>Recursos multimedia</h1>
+        <p>Ejemplo de audio y video utilizando HTML.</p>
+    </header>
+
+    <main>
+
+        <section>
+            <h2>Audio:</h2>
+
+            <p>Escucha la melodia.</p>
+
+            <audio controls preload="metadata">
+                <source src="audio/audio.m4a" type="audio/mpeg">
+                Tu navegador no puede reproducir este audio.
+            </audio>
+        </section>
+
+        <section>
+            <h2>Video educativo</h2>
+
+            <p>Observa la siguiente explicación en video.</p>
+
+            <video
+                controls
+                preload="metadata"
+                poster="imagenes/portada.jpg"
+                width="640"
+            >
+                <source src="videos/Download (2).mp4" type="video/mp4">
+
+                Tu navegador no puede reproducir este video.
+            </video>
+        </section>
+
+        <section>
+            <h2>Video con subtítulos</h2>
+
+            <video controls width="640">
+                <source src="videos/Download.mp4" type="video/mp4">
+
+                <track
+                    src="subtitulos/subs.vtt"
+                    kind="subtitles"
+                    srclang="es"
+                    label="Español"
+                >
+
+                Tu navegador no puede reproducir este video.
+            </video>
+        </section>
+
+    </main>
+
+    <footer>
+        <p>&copy; 2026 Recursos multimedia.</p>
+    </footer>
+
+</body>
+</html>
