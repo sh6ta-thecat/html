@@ -3,23 +3,37 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Registro estudiantil</title>
+    <title>Formulario de registro</title>
 </head>
 <body>
-    <h1>Registro estudiantil</h1>
+    <h1>Registro de estudiante</h1>
 
     <p>Completa los siguientes campos.</p>
 
     <form action="#" method="get">
         <fieldset>
-            <legend>Información personal</legend>
+            <legend>Datos personales</legend>
 
-            <label for="nombre">Nombre completo:</label>
+            <label for="nombre">Nombre:</label>
             <input
                 type="text"
                 id="nombre"
                 name="nombre"
                 placeholder="Escribe tu nombre"
+                minlength="2"
+                maxlength="50"
+                required
+            >
+
+            <br><br>
+
+            <label for="apellido">Apellido:</label>
+            <input
+                type="text"
+                id="apellido"
+                name="apellido"
+                placeholder="Escribe tu apellido"
+                maxlength="50"
                 required
             >
 
@@ -50,7 +64,8 @@
         <fieldset>
             <legend>Información académica</legend>
 
-            <label for="carrera">Carrera profesional:</label>
+            <label for="carrera">Carrera:</label>
+
             <select id="carrera" name="carrera" required>
                 <option value="">Selecciona una carrera</option>
                 <option value="sistemas">Ingeniería de Sistemas</option>
@@ -60,48 +75,67 @@
 
             <br><br>
 
-            <label for="semestre">Semestre:</label>
+            <p>Turno de estudio:</p>
+
             <input
-                type="number"
-                id="semestre"
-                name="semestre"
-                min="1"
-                max="10"
+                type="radio"
+                id="manana"
+                name="turno"
+                value="mañana"
                 required
             >
+            <label for="manana">Mañana</label>
 
-            <br><br>
+            <input
+                type="radio"
+                id="tarde"
+                name="turno"
+                value="tarde"
+            >
+            <label for="tarde">Tarde</label>
 
-            <label for="observaciones">Observaciones:</label>
-            <br>
-
-            <textarea
-                id="observaciones"
-                name="observaciones"
-                rows="4"
-                cols="35"
-                placeholder="Escribe alguna observación..."
-            ></textarea>
+            <input
+                type="radio"
+                id="noche"
+                name="turno"
+                value="noche"
+            >
+            <label for="noche">Noche</label>
         </fieldset>
 
         <br>
 
-        <input
-            type="checkbox"
-            id="aceptar"
-            name="aceptar"
-            value="si"
-            required
-        >
+        <fieldset>
+            <legend>Información adicional</legend>
 
-        <label for="aceptar">
-            Confirmo que la información introducida es correcta.
-        </label>
+            <label for="comentario">Comentario:</label>
 
-        <br><br>
+            <br>
 
-        <button type="submit">Enviar formulario</button>
-        <button type="reset">Limpiar campos</button>
+            <textarea
+                id="comentario"
+                name="comentario"
+                rows="4"
+                cols="40"
+                placeholder="Escribe información adicional..."
+            ></textarea>
+
+            <br><br>
+
+            <input
+                type="checkbox"
+                id="condiciones"
+                name="condiciones"
+                value="aceptadas"
+                required
+            >
+            <label for="condiciones">Acepto las condiciones del registro.</label>
+        </fieldset>
+
+        <br>
+
+        <button type="submit">Registrar</button>
+        <button type="reset">Limpiar formulario</button>
     </form>
 </body>
 </html>
