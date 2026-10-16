@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ejemplo de imágenes HTML</title>
+
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            max-width: 900px;
+            margin: 20px auto;
+            padding: 0 16px;
+        }
+
+        img {
+            max-width: 100%;
+            height: auto;
+        }
+
+        figure {
+            margin: 24px 0;
+        }
+
+        figcaption {
+            margin-top: 8px;
+        }
+    </style>
+</head>
+<body>
+    <h1>Galería de imágenes</h1>
+
+    <p>
+        En esta página se muestran ejemplos de imágenes
+        acompañadas de una descripción.
+    </p>
+
+    <figure>
+        <img
+            src="https://placehold.co/600x350/png?text=HTML"
+            alt="Imagen ilustrativa dedicada a HTML"
+            width="600"
+            height="350"
+        >
+        <figcaption>
+            HTML permite estructurar el contenido de una página web.
+        </figcaption>
+    </figure>
+
+    <figure>
+        <img
+            src="https://placehold.co/600x350/png?text=CSS"
+            alt="Imagen ilustrativa dedicada a CSS"
+            width="600"
+            height="350"
+            loading="lazy"
+        >
+        <figcaption>
+            CSS permite definir la apariencia visual de una página.
+        </figcaption>
+    </figure>
+
+    <figure>
+        <img
+            src="https://placehold.co/600x350/png?text=JavaScript"
+            alt="Imagen ilustrativa dedicada a JavaScript"
+            width="600"
+            height="350"
+            loading="lazy"
+        >
+        <figcaption>
+            JavaScript permite incorporar interactividad.
+        </figcaption>
+    </figure>
+</body>
+</html>
