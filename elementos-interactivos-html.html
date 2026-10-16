@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Elementos interactivos</title>
+
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+            line-height: 1.6;
+        }
+
+        section {
+            margin-bottom: 25px;
+        }
+
+        button {
+            padding: 10px 15px;
+            cursor: pointer;
+        }
+
+        details {
+            padding: 10px;
+            border: 1px solid #cccccc;
+            border-radius: 6px;
+        }
+
+        dialog {
+            max-width: 400px;
+            border: 1px solid #cccccc;
+            border-radius: 8px;
+        }
+
+        dialog::backdrop {
+            background: rgba(0, 0, 0, 0.5);
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <h1>Elementos interactivos en HTML</h1>
+        <p>Ejemplos de controles interactivos.</p>
+    </header>
+
+    <main>
+
+        <section>
+            <h2>Información desplegable</h2>
+
+            <details>
+                <summary>¿Qué es HTML?</summary>
+                <p>
+                    HTML es un lenguaje de marcado utilizado
+                    para estructurar páginas web.
+                </p>
+            </details>
+        </section>
+
+        <section>
+            <h2>Cuadro de diálogo</h2>
+
+            <button type="button" id="abrir-dialogo">
+                Mostrar información
+            </button>
+
+            <dialog id="dialogo">
+                <h3>Información adicional</h3>
+
+                <p>
+                    Los elementos interactivos mejoran
+                    la forma en que los usuarios utilizan una página.
+                </p>
+
+                <button type="button" id="cerrar-dialogo">
+                    Cerrar
+                </button>
+            </dialog>
+        </section>
+
+    </main>
+
+    <footer>
+        <p>&copy; 2026 Manual de desarrollo web.</p>
+    </footer>
+
+    <script>
+        const dialogo = document.getElementById("dialogo");
+
+        const abrirDialogo = document.getElementById("abrir-dialogo");
+        const cerrarDialogo = document.getElementById("cerrar-dialogo");
+
+        abrirDialogo.addEventListener("click", () => {
+            dialogo.showModal();
+        });
+
+        cerrarDialogo.addEventListener("click", () => {
+            dialogo.close();
+        });
+    </script>
+
+</body>
+</html>
