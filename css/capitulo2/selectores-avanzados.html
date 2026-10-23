@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>2.5. Selectores avanzados | Desde HTML hasta Bootstrap</title>
+<style>
+* { box-sizing: border-box; }
+body { margin: 0; font-family: Arial, sans-serif; line-height: 1.6; color: #263248; background: #f5f7fb; }
+header { padding: 2rem 1rem; text-align: center; color: white; background: #245c70; }
+main { width: min(900px, 92%); margin: 2rem auto; }
+section { background: white; border-radius: 12px; padding: 1.3rem; margin: 1rem 0; }
+button { border: 0; border-radius: 6px; padding: .7rem 1rem; background: #dce5f4; cursor: pointer; }
+button.principal { background: #245c70; color: white; }
+button:not(.principal) { border: 1px solid #8797aa; }
+:is(h2, h3) { color: #245c70; }
+:where(section p, section li) { line-height: 1.8; }
+.tarjetas { display: grid; grid-template-columns: repeat(auto-fit, minmax(210px, 1fr)); gap: 1rem; }
+.tarjeta { border: 1px solid #c9d2df; border-radius: 10px; padding: 1rem; background: white; }
+.tarjeta:has(.agotado) { border: 2px solid #b42318; background: #fff0f0; }
+.agotado { color: #b42318; font-weight: bold; }
+code { background: #eef2f7; padding: .1rem .3rem; border-radius: 4px; }
+</style>
+</head>
+<body>
+<header><h1>Selectores avanzados</h1><p>:not(), :is(), :where() y :has()</p></header>
+<main>
+<section>
+<h2>1. :not()</h2>
+<p>Todos los botones excepto el principal reciben un borde.</p>
+<button class="principal" onclick="alert('Botón principal')">Principal</button>
+<button onclick="alert('Cancelar')">Cancelar</button>
+<button onclick="alert('Ayuda')">Ayuda</button>
+<p><code>button:not(.principal)</code></p>
+</section>
+<section>
+<h2>2. :is() y :where()</h2>
+<h3>Encabezado h3 seleccionado mediante :is()</h3>
+<p>Los párrafos de esta sección usan estilos base con <code>:where()</code>, que no añade especificidad.</p>
+</section>
+<section>
+<h2>3. :has()</h2>
+<div class="tarjetas">
+<article class="tarjeta">
+<h3>Cuaderno</h3><p>Disponible en tienda.</p><strong>S/ 8.00</strong>
+</article>
+<article class="tarjeta">
+<h3>Mochila</h3><p class="agotado">Sin existencias.</p><strong>S/ 45.00</strong>
+</article>
+<article class="tarjeta">
+<h3>Lápiz</h3><p>Disponible en tienda.</p><strong>S/ 2.00</strong>
+</article>
+</div>
+<p>La tarjeta que contiene <code>.agotado</code> se destaca mediante <code>.tarjeta:has(.agotado)</code>.</p>
+</section>
+</main>
+</body>
+</html>

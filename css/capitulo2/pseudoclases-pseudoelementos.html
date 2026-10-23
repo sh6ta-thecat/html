@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>2.4. Pseudoclases y pseudoelementos | Desde HTML hasta Bootstrap</title>
+<style>
+* { box-sizing: border-box; }
+body { margin: 0; font-family: Arial, sans-serif; line-height: 1.6; color: #263248; background: #f5f7fb; }
+header { padding: 2rem 1rem; text-align: center; color: white; background: #a34d22; }
+main { width: min(900px, 92%); margin: 2rem auto; }
+section { background: white; border-radius: 12px; padding: 1.3rem; margin: 1rem 0; }
+a { color: #185abc; }
+a:hover { color: #b42318; }
+button { padding: .7rem 1rem; border: 0; border-radius: 6px; background: #185abc; color: white; cursor: pointer; }
+button:hover { background: #123c7c; }
+button:active { transform: translateY(2px); }
+input { padding: .65rem; border: 1px solid #9aa7ba; border-radius: 6px; }
+input:focus { outline: 3px solid #b8d3ff; border-color: #185abc; }
+li:nth-child(odd) { background: #eef3fb; }
+li:first-child { font-weight: bold; }
+.aviso::before { content: "Importante: "; color: #b42318; font-weight: bold; }
+.aviso::after { content: " ✓"; color: #16804a; }
+.capital::first-letter { font-size: 2.2em; color: #6d3a91; font-weight: bold; }
+::selection { background: #263f77; color: white; }
+li { padding: .45rem; }
+code { background: #eef2f7; padding: .1rem .3rem; border-radius: 4px; }
+</style>
+</head>
+<body>
+<header><h1>Pseudoclases y pseudoelementos</h1><p>Prueba estados y partes de los elementos</p></header>
+<main>
+<section>
+<h2>Pseudoclases de interacción</h2>
+<p><a href="#formulario">Pasa el puntero por este enlace</a> para ver <code>:hover</code>.</p>
+<button onclick="alert('Botón activado')">Mantén pulsado este botón</button>
+<p>Haz clic en el campo para ver el estilo de <code>:focus</code>.</p>
+<input type="text" placeholder="Haz clic aquí">
+</section>
+<section>
+<h2>Pseudoclases estructurales</h2>
+<p>El primer elemento está en negrita y los elementos impares tienen fondo suave.</p>
+<ol>
+<li>Primer elemento</li>
+<li>Segundo elemento</li>
+<li>Tercer elemento</li>
+<li>Cuarto elemento</li>
+<li>Quinto elemento</li>
+</ol>
+</section>
+<section>
+<h2>Pseudoelementos</h2>
+<p class="aviso">Revisa los datos antes de continuar.</p>
+<p class="capital">Este párrafo tiene una primera letra ampliada mediante ::first-letter.</p>
+<p>También puedes seleccionar este texto con el ratón para ver <code>::selection</code>.</p>
+</section>
+</main>
+</body>
+</html>

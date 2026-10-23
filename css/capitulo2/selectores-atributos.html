@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>2.2. Selectores de atributos | Desde HTML hasta Bootstrap</title>
+<style>
+* { box-sizing: border-box; }
+body { margin: 0; font-family: Arial, sans-serif; line-height: 1.6; background: #f5f7fa; color: #243044; }
+header { background: #176b58; color: white; padding: 2rem 1rem; text-align: center; }
+main { width: min(850px, 92%); margin: 2rem auto; }
+section { background: white; padding: 1.3rem; margin: 1rem 0; border-radius: 12px; box-shadow: 0 3px 12px #0000000c; }
+input { display: block; width: 100%; max-width: 420px; padding: .7rem; margin: .6rem 0 1rem; border: 1px solid #aab4c3; border-radius: 6px; }
+input[required] { border: 2px solid #d97706; }
+input[type="email"] { background: #fff7d6; }
+a[href^="https"] { color: #087443; font-weight: bold; }
+a[href$=".pdf"] { border-bottom: 2px solid #b42318; }
+a[href*="documentos"] { padding: .15rem .3rem; background: #e9efff; }
+code { background: #eef2f7; padding: .1rem .3rem; border-radius: 4px; }
+</style>
+</head>
+<body>
+<header><h1>Selectores de atributos</h1><p>Selecciona elementos según sus atributos y valores</p></header>
+<main>
+<section>
+<h2>Campos del formulario</h2>
+<label>Nombre (campo normal)<input type="text" placeholder="Escribe tu nombre"></label>
+<label>Correo (selector <code>[type="email"]</code>)<input type="email" placeholder="usuario@ejemplo.com"></label>
+<label>Contraseña (obligatorio)<input type="password" required placeholder="Campo required"></label>
+<p>Los campos obligatorios tienen borde naranja y el campo de correo tiene fondo amarillo.</p>
+</section>
+<section>
+<h2>Enlaces</h2>
+<ul>
+<li><a href="https://example.com">Enlace HTTPS</a> — coincide con <code>[href^="https"]</code>.</li>
+<li><a href="documentos/guia.pdf">Descargar guía PDF</a> — coincide con <code>[href$=".pdf"]</code> y <code>[href*="documentos"]</code>.</li>
+<li><a href="contacto.html">Página de contacto</a> — enlace normal.</li>
+</ul>
+</section>
+</main>
+</body>
+</html>

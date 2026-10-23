@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>2.1. Selectores básicos | Desde HTML hasta Bootstrap</title>
+<style>
+* { box-sizing: border-box; }
+body { margin: 0; font-family: Arial, sans-serif; line-height: 1.6; color: #243044; background: #f3f6fb; }
+header { padding: 2rem 1rem; text-align: center; color: white; background: #244b8f; }
+main { width: min(900px, 92%); margin: 2rem auto; }
+section, .demo { background: white; border-radius: 12px; padding: 1.25rem; margin: 1rem 0; box-shadow: 0 3px 12px #14213d12; }
+h2 { margin-top: 0; }
+.destacado { color: #b42318; font-weight: bold; }
+.centrado { text-align: center; }
+#boton-principal { background: #244b8f; color: white; border: 0; padding: .7rem 1rem; border-radius: 7px; cursor: pointer; }
+code { background: #eef2f7; padding: .1rem .3rem; border-radius: 4px; }
+.note { color: #536177; }
+</style>
+</head>
+<body>
+<header><h1>Selectores básicos de CSS</h1><p>Tipo, clase, identificador y selector universal</p></header>
+<main>
+<section>
+<h2>1. Selector de tipo</h2>
+<p>Todos los párrafos usan el color general definido para <code>p</code>.</p>
+<p>Este es otro párrafo seleccionado por etiqueta.</p>
+</section>
+<section>
+<h2 class="centrado">2. Selector de clase</h2>
+<p class="destacado">Este párrafo usa la clase .destacado.</p>
+<p class="destacado centrado">Este usa dos clases: destacado y centrado.</p>
+</section>
+<section>
+<h2>3. Selector de identificador</h2>
+<p>El botón tiene un ID único: <code>boton-principal</code>.</p>
+<button id="boton-principal" onclick="alert('¡El botón funciona!')">Probar botón</button>
+</section>
+<section>
+<h2>4. Selector universal</h2>
+<p class="note">La regla <code>* { box-sizing: border-box; }</code> se aplica a todos los elementos.</p>
+</section>
+</main>
+</body>
+</html>

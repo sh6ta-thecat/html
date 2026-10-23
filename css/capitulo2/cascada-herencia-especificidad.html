@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>2.6. Cascada, herencia y especificidad | Desde HTML hasta Bootstrap</title>
+<style>
+* { box-sizing: border-box; }
+body { margin: 0; font-family: Arial, sans-serif; line-height: 1.6; color: #263248; background: #f4f6fb; }
+header { padding: 2rem 1rem; text-align: center; color: white; background: #3f5185; }
+main { width: min(900px, 92%); margin: 2rem auto; }
+section { background: white; border-radius: 12px; padding: 1.3rem; margin: 1rem 0; }
+.contenedor-herencia { color: #1769aa; font-family: Georgia, serif; border: 2px solid #c8d5e8; padding: 1rem; }
+p { color: blue; }
+.texto { color: green; }
+#mensaje { color: red; }
+p#mensaje { color: purple; }
+.comparacion { padding: .8rem; background: #f0f3f9; border-radius: 8px; }
+code { background: #eef2f7; padding: .1rem .3rem; border-radius: 4px; }
+</style>
+</head>
+<body>
+<header><h1>Cascada, herencia y especificidad</h1><p>Por qué una regla CSS prevalece sobre otra</p></header>
+<main>
+<section>
+<h2>Herencia</h2>
+<div class="contenedor-herencia">
+<h3>Encabezado dentro del contenedor</h3>
+<p>Este párrafo hereda la fuente del contenedor, pero su color lo determina una regla específica para p.</p>
+</div>
+<p>La propiedad <code>font-family</code> se hereda normalmente; <code>border</code> no se hereda.</p>
+</section>
+<section>
+<h2>Especificidad</h2>
+<p id="mensaje" class="texto">¿Qué color tiene este texto?</p>
+<p>El color final es morado porque <code>p#mensaje</code> tiene más especificidad que <code>#mensaje</code>, <code>.texto</code> y <code>p</code>.</p>
+<div class="comparacion">
+<p><strong>Prueba:</strong> abre las herramientas del navegador (F12), inspecciona el párrafo y revisa las declaraciones CSS tachadas y activas.</p>
+</div>
+</section>
+<section>
+<h2>Valores relacionados con herencia</h2>
+<p style="color: inherit;">Este párrafo utiliza <code>color: inherit</code> para tomar el color de su padre.</p>
+<p style="color: initial;">Este párrafo utiliza <code>color: initial</code>, el valor inicial de la propiedad.</p>
+<p style="color: unset;">Este párrafo utiliza <code>color: unset</code>; como color es una propiedad heredable, se comporta como <code>inherit</code>.</p>
+</section>
+</main>
+</body>
+</html>

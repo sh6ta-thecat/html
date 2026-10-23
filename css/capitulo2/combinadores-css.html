@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>2.3. Combinadores CSS | Desde HTML hasta Bootstrap</title>
+<style>
+* { box-sizing: border-box; }
+body { margin: 0; font-family: Arial, sans-serif; line-height: 1.6; color: #253047; background: #f4f6fb; }
+header { padding: 2rem 1rem; text-align: center; color: white; background: #6d3a91; }
+main { width: min(900px, 92%); margin: 2rem auto; }
+section { background: white; border-radius: 12px; padding: 1.2rem; margin: 1rem 0; }
+.demo { border: 1px solid #d5dbea; border-radius: 8px; padding: 1rem; }
+.descendiente p { color: #1769aa; }
+.padre-directo > p { background: #fff0c2; padding: .4rem; }
+.adyacente h3 + p { color: #16804a; font-weight: bold; }
+.hermanos h3 ~ p { border-left: 4px solid #8b5cf6; padding-left: .7rem; }
+code { background: #eef2f7; padding: .1rem .3rem; border-radius: 4px; }
+</style>
+</head>
+<body>
+<header><h1>Combinadores de CSS</h1><p>Descendientes, hijos directos y hermanos</p></header>
+<main>
+<section>
+<h2>1. Descendientes: espacio</h2>
+<div class="demo descendiente">
+<p>Este párrafo está dentro del contenedor.</p>
+<div><p>Este párrafo también es descendiente, aunque esté más adentro.</p></div>
+</div>
+<p>Regla: <code>.descendiente p { color: #1769aa; }</code></p>
+</section>
+<section>
+<h2>2. Hijos directos: &gt;</h2>
+<div class="demo padre-directo">
+<p>Hijo directo: recibe fondo amarillo.</p>
+<div><p>Nieto: no recibe ese fondo.</p></div>
+</div>
+<p>Regla: <code>.padre-directo &gt; p</code></p>
+</section>
+<section>
+<h2>3. Hermano adyacente: +</h2>
+<div class="demo adyacente">
+<h3>Encabezado</h3>
+<p>Primer párrafo: está inmediatamente después del encabezado.</p>
+<p>Segundo párrafo: no es adyacente al encabezado.</p>
+</div>
+<p>Regla: <code>h3 + p</code></p>
+</section>
+<section>
+<h2>4. Hermanos generales: ~</h2>
+<div class="demo hermanos">
+<h3>Encabezado</h3>
+<div>Un elemento intermedio.</div>
+<p>Primer párrafo posterior.</p>
+<p>Segundo párrafo posterior.</p>
+</div>
+<p>Regla: <code>h3 ~ p</code></p>
+</section>
+</main>
+</body>
+</html>

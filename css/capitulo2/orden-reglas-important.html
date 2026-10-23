@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>2.7. Orden de reglas e !important | Desde HTML hasta Bootstrap</title>
+<style>
+* { box-sizing: border-box; }
+body { margin: 0; font-family: Arial, sans-serif; line-height: 1.6; color: #263248; background: #f5f7fb; }
+header { padding: 2rem 1rem; text-align: center; color: white; background: #873f4e; }
+main { width: min(900px, 92%); margin: 2rem auto; }
+section { background: white; border-radius: 12px; padding: 1.3rem; margin: 1rem 0; }
+code { background: #eef2f7; padding: .1rem .3rem; border-radius: 4px; }
+.orden p { color: blue; }
+.orden p { color: red; }
+.especificidad p { color: blue; }
+.especificidad .destacado { color: green; }
+.importante p { color: blue !important; }
+.importante #mensaje-importante { color: red; }
+.demo { padding: .8rem; background: #f0f3f9; border-radius: 8px; }
+</style>
+</head>
+<body>
+<header><h1>Orden de reglas y !important</h1><p>Comprende los conflictos entre declaraciones CSS</p></header>
+<main>
+<section class="orden">
+<h2>1. Mismo selector, distinto orden</h2>
+<p>Este texto es rojo porque la segunda regla <code>p</code> aparece después de la primera y ambas tienen igual especificidad e importancia.</p>
+</section>
+<section class="especificidad">
+<h2>2. Mayor especificidad</h2>
+<p class="destacado">Este texto es verde: la clase tiene más especificidad que el selector de tipo.</p>
+</section>
+<section class="importante">
+<h2>3. Declaración importante</h2>
+<p id="mensaje-importante">Este texto es azul por <code>color: blue !important</code>, que prevalece sobre la declaración normal del ID en este ejemplo.</p>
+</section>
+<section>
+<h2>¿Qué debes recordar?</h2>
+<ul>
+<li>El orden importa cuando los demás factores relevantes están empatados.</li>
+<li>La especificidad ayuda a resolver conflictos entre selectores.</li>
+<li><code>!important</code> debe reservarse para casos justificados.</li>
+<li>Usa las herramientas del navegador para descubrir qué regla está activa.</li>
+</ul>
+</section>
+</main>
+</body>
+</html>
