@@ -1,0 +1,11 @@
+<!doctype html>
+<html lang="es"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Filtros CSS</title><style>
+*{box-sizing:border-box}body{margin:0;padding:24px;font:16px/1.6 system-ui,sans-serif;color:#202638;background:#f5f7fb}
+main{max-width:850px;margin:auto;background:white;padding:24px;border-radius:14px;box-shadow:0 4px 18px #00000010}
+.demo{filter:grayscale(35%) contrast(110%);padding:25px;border-radius:12px;background:linear-gradient(135deg,#f59e0b,#7c3aed);color:white;}pre{overflow:auto;background:#171c2b;color:#f3f5ff;padding:16px;border-radius:10px}a{color:#2459b3}
+</style></head><body><main><p><a href="index.html">← Volver a la semana</a></p><h1>Filtros CSS</h1><p>filter aplica efectos visuales como blur(), grayscale(), contrast() y brightness().</p>
+<h2>Vista previa</h2><div class="demo"><h2>Filtro de color</h2><p>Este bloque simula una superficie colorida. Aplica el filtro al elemento completo.</p></div><h2>Código CSS</h2><pre><code> .imagen {
+  filter: grayscale(35%) contrast(110%);
+}
+/* Para quitar el efecto: filter: none; */</code></pre></main></body></html>
