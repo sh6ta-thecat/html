@@ -1,0 +1,475 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Historia de JavaScript — Timeline Animada e Interactiva</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+  <canvas id="stars" aria-hidden="true"></canvas>
+  <div class="progress"><div class="bar" id="bar"></div></div>
+
+  <!-- ===================== HERO ===================== -->
+  <header class="hero">
+    <div class="hero-glow" id="heroGlow" aria-hidden="true"></div>
+
+    <div class="jslogo" id="jsLogo" title="Hazme clic 👀" role="button" tabindex="0">
+      <svg viewBox="0 0 100 100" aria-hidden="true">
+        <rect width="100" height="100" rx="20" fill="#f7df1e"/>
+        <text x="78" y="86" font-family="Arial, sans-serif" font-size="46" font-weight="900"
+              fill="#0b0b12" text-anchor="end">JS</text>
+      </svg>
+    </div>
+
+    <h1>Historia de JavaScript</h1>
+    <p class="sub">
+      De un prototipo escrito en <strong>10 días</strong> a la tecnología que mueve la web.
+      Un recorrido interactivo por 30 años de caos, guerras de navegadores y evolución.
+    </p>
+    <div class="hint" id="hint">▼</div>
+  </header>
+
+  <!-- ===================== TIMELINE ===================== -->
+  <main class="timeline">
+    <div class="tl-line"><div class="tl-fill" id="tlFill"></div></div>
+
+    <!-- 1994 -->
+    <article class="event">
+      <div class="dot"></div>
+      <div class="card">
+        <div class="media">
+          <svg viewBox="0 0 320 180" class="art" aria-hidden="true">
+            <defs>
+              <linearGradient id="beige" x1="0" y1="0" x2="0" y2="1">
+                <stop offset="0" stop-color="#e8e1c4"/>
+                <stop offset="1" stop-color="#a89e7a"/>
+              </linearGradient>
+            </defs>
+            <rect x="18" y="16" width="200" height="142" rx="12" fill="url(#beige)"/>
+            <rect x="32" y="30" width="172" height="102" rx="6" fill="#0e1326"/>
+            <rect x="42" y="40" width="70" height="7" fill="#6ee7ff" opacity=".85"/>
+            <rect x="42" y="54" width="120" height="4" fill="#6ee7ff" opacity=".35"/>
+            <rect x="42" y="64" width="100" height="4" fill="#6ee7ff" opacity=".35"/>
+            <rect x="42" y="74" width="130" height="4" fill="#6ee7ff" opacity=".35"/>
+            <rect x="42" y="92" width="52" height="16" rx="3" fill="#f7df1e" opacity=".85"/>
+            <path class="blink" d="M150 66 l0 16 l5 -4 l4 8 l4 -2 l-4 -8 l6 0 z" fill="#fff"/>
+            <rect x="68" y="158" width="100" height="12" rx="4" fill="#8d8364"/>
+            <rect x="238" y="92" width="68" height="36" rx="5" fill="url(#beige)"/>
+            <g fill="#7d7458">
+              <rect x="246" y="99" width="10" height="7" rx="1"/>
+              <rect x="260" y="99" width="10" height="7" rx="1"/>
+              <rect x="274" y="99" width="10" height="7" rx="1"/>
+              <rect x="288" y="99" width="10" height="7" rx="1"/>
+              <rect x="253" y="111" width="10" height="7" rx="1"/>
+              <rect x="267" y="111" width="10" height="7" rx="1"/>
+              <rect x="281" y="111" width="10" height="7" rx="1"/>
+            </g>
+          </svg>
+        </div>
+        <span class="year">1994</span>
+        <h2>La web era de piedra</h2>
+        <p>Páginas estáticas, formularios que recargaban todo y cero interactividad. Netscape Navigator dominaba el mercado. Hacía falta un lenguaje que se ejecutara <strong>dentro del navegador</strong>.</p>
+      </div>
+    </article>
+
+    <!-- 1995 - 10 días -->
+    <article class="event">
+      <div class="dot"></div>
+      <div class="card">
+        <div class="media">
+          <svg viewBox="0 0 320 180" class="art" aria-hidden="true">
+            <rect x="0" y="128" width="320" height="52" fill="#3a2a1a"/>
+            <rect x="0" y="126" width="320" height="6" fill="#5a4128"/>
+            <rect x="14" y="16" width="64" height="72" rx="6" fill="#fff"/>
+            <rect x="14" y="16" width="64" height="18" rx="6" fill="#ff5ea8"/>
+            <rect x="14" y="28" width="64" height="6" fill="#ff5ea8"/>
+            <text x="46" y="30" font-size="10" fill="#fff" text-anchor="middle" font-weight="700" font-family="Arial">1995</text>
+            <text x="46" y="72" font-size="30" fill="#111" text-anchor="middle" font-weight="900" font-family="Arial">10</text>
+            <text x="46" y="82" font-size="9" fill="#666" text-anchor="middle" font-family="Arial">días</text>
+            <path d="M96 128 L106 96 L176 96 L186 128 Z" fill="#c9c2a6"/>
+            <rect x="106" y="74" width="70" height="24" rx="3" fill="#0e1326"/>
+            <rect x="112" y="80" width="28" height="4" fill="#f7df1e"/>
+            <rect x="112" y="88" width="50" height="3" fill="#6ee7ff" opacity=".6"/>
+            <g class="float-slow">
+              <circle cx="238" cy="62" r="24" fill="#f2c29b"/>
+              <path d="M214 62 a24 24 0 0 1 48 0 q-24 -14 -48 0" fill="#3a2a1a"/>
+              <circle cx="230" cy="62" r="2.6" fill="#222"/>
+              <circle cx="246" cy="62" r="2.6" fill="#222"/>
+              <path d="M231 73 q7 5 14 0" stroke="#222" stroke-width="2" fill="none" stroke-linecap="round"/>
+              <rect x="212" y="86" width="52" height="44" rx="10" fill="#2b3a6b"/>
+              <path d="M216 96 q-26 2 -40 -14" stroke="#f2c29b" stroke-width="9" fill="none" stroke-linecap="round"/>
+              <circle class="wave" cx="172" cy="80" r="8" fill="#f2c29b"/>
+            </g>
+          </svg>
+        </div>
+        <span class="year">Mayo 1995</span>
+        <h2>10 días para crear un lenguaje</h2>
+        <p>Brendan Eich, contratado por Netscape, escribe el primer prototipo en solo <strong>10 días</strong>. Nombre en clave: <strong>Mocha</strong>. La idea: dar interactividad a los diseñadores web.</p>
+      </div>
+    </article>
+
+    <!-- 1995 rename -->
+    <article class="event">
+      <div class="dot"></div>
+      <div class="card">
+        <div class="media">
+          <svg viewBox="0 0 320 180" class="art" aria-hidden="true">
+            <circle cx="62" cy="90" r="42" fill="#7a5bd6"/>
+            <text x="62" y="96" font-size="16" fill="#fff" text-anchor="middle" font-weight="700" font-family="Arial">Mocha</text>
+            <path d="M108 90 h28" stroke="#6ee7ff" stroke-width="3" stroke-dasharray="6 6" class="dash"/>
+            <path d="M132 84 l8 6 l-8 6" stroke="#6ee7ff" stroke-width="3" fill="none" stroke-linecap="round"/>
+            <circle cx="168" cy="90" r="42" fill="#2fa8a8"/>
+            <text x="168" y="95" font-size="13" fill="#fff" text-anchor="middle" font-weight="700" font-family="Arial">LiveScript</text>
+            <path d="M214 90 h28" stroke="#6ee7ff" stroke-width="3" stroke-dasharray="6 6" class="dash"/>
+            <path d="M238 84 l8 6 l-8 6" stroke="#6ee7ff" stroke-width="3" fill="none" stroke-linecap="round"/>
+            <circle cx="274" cy="90" r="42" fill="#f7df1e"/>
+            <text x="274" y="95" font-size="14" fill="#111" text-anchor="middle" font-weight="900" font-family="Arial">JavaScript</text>
+            <g class="sparkle"><path d="M40 30 l3 8 l8 3 l-8 3 l-3 8 l-3 -8 l-8 -3 l8 -3 z" fill="#fff"/></g>
+            <g class="sparkle s2"><path d="M290 150 l3 8 l8 3 l-8 3 l-3 8 l-3 -8 l-8 -3 l8 -3 z" fill="#6ee7ff"/></g>
+          </svg>
+        </div>
+        <span class="year">Sep 1995</span>
+        <h2>Mocha → LiveScript → JavaScript</h2>
+        <p>Por puro marketing se renombra a <strong>LiveScript</strong> y después a <strong>JavaScript</strong>, aprovechando el hype de Java. Una decisión comercial que confundiría a generaciones enteras.</p>
+      </div>
+    </article>
+
+    <!-- ============ GUERRA DE NAVEGADORES (INTERACTIVO) ============ -->
+    <article class="event wide war-event">
+      <div class="dot"></div>
+      <div class="card card--war">
+        <span class="year">1996 — 1999</span>
+        <h2>⚔️ La Guerra de los Navegadores</h2>
+        <p class="war-sub">Haz clic en un luchador (o usa los botones) para atacar. ¿Quién ganará la web?</p>
+
+        <div class="arena">
+          <!-- NETSCAPE -->
+          <div class="fighter fighter--netscape" data-fighter="netscape" tabindex="0" role="button" aria-label="Atacar con Netscape">
+            <div class="hp-bar"><div class="hp" data-hp="netscape"></div></div>
+            <div class="fighter-art">
+              <svg viewBox="0 0 120 120" aria-hidden="true">
+                <circle cx="60" cy="60" r="46" fill="#132a63"/>
+                <path d="M24 40 A46 46 0 0 1 96 40" stroke="#6ee7ff" stroke-width="4" fill="none" stroke-linecap="round"/>
+                <path d="M30 48 A38 38 0 0 1 90 48" stroke="#6ee7ff" stroke-width="2" fill="none" stroke-linecap="round" opacity=".5"/>
+                <text x="60" y="84" font-size="50" font-weight="900" fill="#6ee7ff" text-anchor="middle" font-family="Arial, sans-serif">N</text>
+                <circle cx="18" cy="84" r="13" fill="#ff2e63"/>
+                <circle cx="18" cy="84" r="5" fill="#ffb8c9"/>
+                <circle cx="102" cy="84" r="13" fill="#ff2e63"/>
+                <circle cx="102" cy="84" r="5" fill="#ffb8c9"/>
+              </svg>
+            </div>
+            <div class="fighter-name">Netscape Navigator</div>
+            <div class="fighter-tech">JavaScript 1.x</div>
+          </div>
+
+          <div class="vs-badge">VS</div>
+
+          <!-- IE -->
+          <div class="fighter fighter--ie" data-fighter="ie" tabindex="0" role="button" aria-label="Atacar con Internet Explorer">
+            <div class="hp-bar"><div class="hp" data-hp="ie"></div></div>
+            <div class="fighter-art">
+              <svg viewBox="0 0 120 120" aria-hidden="true">
+                <circle cx="60" cy="60" r="46" fill="#0a63c9"/>
+                <ellipse cx="60" cy="60" rx="54" ry="17" fill="none" stroke="#ffd200" stroke-width="4"
+                         transform="rotate(-28 60 60)"/>
+                <text x="60" y="84" font-size="54" font-weight="900" fill="#ffd200" text-anchor="middle"
+                      font-family="Arial, sans-serif" font-style="italic">e</text>
+                <circle cx="18" cy="84" r="13" fill="#ff2e63"/>
+                <circle cx="18" cy="84" r="5" fill="#ffb8c9"/>
+                <circle cx="102" cy="84" r="13" fill="#ff2e63"/>
+                <circle cx="102" cy="84" r="5" fill="#ffb8c9"/>
+              </svg>
+            </div>
+            <div class="fighter-name">Internet Explorer</div>
+            <div class="fighter-tech">JScript</div>
+          </div>
+        </div>
+
+        <div class="arena-actions">
+          <button class="attack-btn" data-attack="netscape">⚡ Atacar con Netscape</button>
+          <button class="attack-btn" data-attack="ie">⚡ Atacar con IE</button>
+          <button class="reset-btn" id="warReset">↺ Reiniciar</button>
+        </div>
+
+        <p class="war-msg" id="warMsg">Cada golpe resta vida al rival. IE tiene un as bajo la manga…</p>
+
+        <p class="war-history">
+          Microsoft clona el lenguaje como <strong>JScript</strong> en IE 3.0 y lo regala junto a Windows.
+          Cada navegador implementa cosas distintas: DHTML, capas, modelos de eventos propietarios…
+          Los desarrolladores escribían el mismo código dos veces. Ese caos fue, irónicamente, el motor
+          que impulsó la estandarización.
+        </p>
+      </div>
+    </article>
+
+    <!-- 1997 -->
+    <article class="event">
+      <div class="dot"></div>
+      <div class="card">
+        <div class="media">
+          <svg viewBox="0 0 320 180" class="art" aria-hidden="true">
+            <rect x="90" y="14" width="140" height="152" rx="6" fill="#f4f1e4"/>
+            <rect x="104" y="30" width="90" height="8" fill="#2b3a6b"/>
+            <rect x="104" y="48" width="112" height="4" fill="#9a9a9a"/>
+            <rect x="104" y="58" width="112" height="4" fill="#9a9a9a"/>
+            <rect x="104" y="68" width="80" height="4" fill="#9a9a9a"/>
+            <rect x="104" y="86" width="112" height="4" fill="#9a9a9a"/>
+            <rect x="104" y="96" width="60" height="4" fill="#9a9a9a"/>
+            <g class="stamp">
+              <circle cx="200" cy="128" r="30" fill="none" stroke="#d33" stroke-width="3"/>
+              <text x="200" y="126" font-size="12" fill="#d33" text-anchor="middle" font-weight="900" font-family="Arial">ECMA</text>
+              <text x="200" y="140" font-size="12" fill="#d33" text-anchor="middle" font-weight="900" font-family="Arial">262</text>
+            </g>
+          </svg>
+        </div>
+        <span class="year">1997</span>
+        <h2>Nace ECMAScript</h2>
+        <p>Netscape lleva el lenguaje a Ecma International para frenar la fragmentación. Se publica <strong>ECMA-262</strong>: nace el estándar <strong>ECMAScript</strong>. «JavaScript» pasa a ser solo el nombre comercial.</p>
+      </div>
+    </article>
+
+    <!-- 1999 -->
+    <article class="event">
+      <div class="dot"></div>
+      <div class="card">
+        <div class="media">
+          <svg viewBox="0 0 320 180" class="art" aria-hidden="true">
+            <g class="float-slow">
+              <path d="M160 18 q30 40 30 80 q0 30 -30 46 q-30 -16 -30 -46 q0 -40 30 -80z" fill="#e6ebff"/>
+              <circle cx="160" cy="64" r="12" fill="#6ee7ff"/>
+              <path d="M130 96 l-16 26 l22 -8z" fill="#ff5ea8"/>
+              <path d="M190 96 l16 26 l-22 -8z" fill="#ff5ea8"/>
+            </g>
+            <g class="flame">
+              <path d="M160 150 q-9 20 0 26 q9 -6 0 -26z" fill="#f7df1e"/>
+            </g>
+          </svg>
+        </div>
+        <span class="year">1999</span>
+        <h2>ES3 y la semilla de AJAX</h2>
+        <p>Se estandariza <strong>ES3</strong> (regex, <code>try/catch</code>). Microsoft introduce <code>XMLHttpRequest</code> en IE5: la pieza que años más tarde haría posible AJAX sin que casi nadie se diera cuenta.</p>
+      </div>
+    </article>
+
+    <!-- 2004-2006 AJAX -->
+    <article class="event">
+      <div class="dot"></div>
+      <div class="card">
+        <div class="media">
+          <svg viewBox="0 0 320 180" class="art" aria-hidden="true">
+            <rect x="14" y="22" width="130" height="136" rx="8" fill="#0e1326" stroke="#6ee7ff" stroke-opacity=".35"/>
+            <rect x="14" y="22" width="130" height="20" rx="8" fill="#1a2b4a"/>
+            <circle cx="26" cy="32" r="3" fill="#ff5ea8"/>
+            <circle cx="36" cy="32" r="3" fill="#f7df1e"/>
+            <circle cx="46" cy="32" r="3" fill="#6ee7ff"/>
+            <rect x="26" y="54" width="100" height="6" fill="#6ee7ff" opacity=".5"/>
+            <rect x="26" y="68" width="80" height="4" fill="#6ee7ff" opacity=".3"/>
+            <rect x="26" y="80" width="90" height="4" fill="#6ee7ff" opacity=".3"/>
+            <rect x="26" y="92" width="70" height="4" fill="#6ee7ff" opacity=".3"/>
+            <rect x="26" y="110" width="60" height="14" rx="3" fill="#6ee7ff" opacity=".25"/>
+
+            <rect x="176" y="42" width="130" height="136" rx="8" fill="#0e1326" stroke="#f7df1e" stroke-opacity=".4"/>
+            <rect x="176" y="42" width="130" height="20" rx="8" fill="#2a2a12"/>
+            <circle cx="188" cy="52" r="3" fill="#ff5ea8"/>
+            <circle cx="198" cy="52" r="3" fill="#f7df1e"/>
+            <circle cx="208" cy="52" r="3" fill="#6ee7ff"/>
+            <path d="M186 78 q40 20 100 6 M186 98 q50 -14 100 8 M186 118 q40 18 100 2"
+                  stroke="#2a5a7a" stroke-width="2" fill="none"/>
+            <g class="pulse-pin">
+              <circle cx="242" cy="114" r="9" fill="#ff5ea8" opacity=".55"/>
+              <circle cx="242" cy="114" r="4" fill="#fff"/>
+            </g>
+          </svg>
+        </div>
+        <span class="year">2004 — 2006</span>
+        <h2>La revolución AJAX</h2>
+        <p>Firefox desafía el reinado de IE. <strong>Gmail</strong> y <strong>Google Maps</strong> demuestran que una web puede sentirse como una app de escritorio. Se acuña el término <strong>AJAX</strong> y JavaScript pasa de juguete a herramienta seria.</p>
+      </div>
+    </article>
+
+    <!-- 2006 jQuery -->
+    <article class="event">
+      <div class="dot"></div>
+      <div class="card">
+        <div class="media">
+          <svg viewBox="0 0 320 180" class="art" aria-hidden="true">
+            <path d="M56 152 L192 34" stroke="#8a6b4a" stroke-width="12" stroke-linecap="round"/>
+            <path d="M56 152 L192 34" stroke="#b88a5a" stroke-width="6" stroke-linecap="round"/>
+            <g class="sparkle">
+              <path d="M192 34 l7 18 l18 7 l-18 7 l-7 18 l-7 -18 l-18 -7 l18 -7 z" fill="#f7df1e"/>
+            </g>
+            <g class="sparkle s2">
+              <path d="M252 84 l4 10 l10 4 l-10 4 l-4 10 l-4 -10 l-10 -4 l10 -4 z" fill="#6ee7ff"/>
+            </g>
+            <g class="sparkle s3">
+              <path d="M244 134 l3 8 l8 3 l-8 3 l-3 8 l-3 -8 l-8 -3 l8 -3 z" fill="#ff5ea8"/>
+            </g>
+            <text x="210" y="168" font-size="12" fill="#8b93b8" text-anchor="middle" font-family="Arial">write less, do more</text>
+          </svg>
+        </div>
+        <span class="year">2006</span>
+        <h2>jQuery: «write less, do more»</h2>
+        <p>John Resig publica <strong>jQuery</strong> y doma la incompatibilidad entre navegadores. Por primera vez, seleccionar elementos y hacer peticiones AJAX funciona igual en todas partes.</p>
+      </div>
+    </article>
+
+    <!-- 2008 V8 -->
+    <article class="event">
+      <div class="dot"></div>
+      <div class="card">
+        <div class="media">
+          <svg viewBox="0 0 320 180" class="art" aria-hidden="true">
+            <g class="float-slow">
+              <rect x="84" y="58" width="152" height="72" rx="12" fill="#2b3a6b"/>
+              <rect x="98" y="70" width="54" height="48" rx="6" fill="#1a2340"/>
+              <text x="125" y="103" font-size="22" font-weight="900" fill="#6ee7ff" text-anchor="middle" font-family="Arial">V8</text>
+              <circle cx="188" cy="84" r="8" fill="#f7df1e"/>
+              <circle cx="210" cy="84" r="8" fill="#ff5ea8"/>
+              <circle cx="188" cy="106" r="8" fill="#6ee7ff"/>
+              <circle cx="210" cy="106" r="8" fill="#f7df1e"/>
+            </g>
+            <path class="flame" d="M110 132 l-16 22 l18 -5z" fill="#ff5ea8"/>
+            <path class="flame" d="M210 132 l16 22 l-18 -5z" fill="#ff5ea8"/>
+          </svg>
+        </div>
+        <span class="year">2008</span>
+        <h2>V8: JavaScript se vuelve rápido</h2>
+        <p>Google lanza Chrome con el motor <strong>V8</strong> y su compilador JIT. El rendimiento se multiplica y el navegador deja de ser el cuello de botella. La nueva guerra ya no es de cuota, es de <strong>velocidad</strong>.</p>
+      </div>
+    </article>
+
+    <!-- 2009 Node -->
+    <article class="event">
+      <div class="dot"></div>
+      <div class="card">
+        <div class="media">
+          <svg viewBox="0 0 320 180" class="art" aria-hidden="true">
+            <g class="float-slow">
+              <rect x="68" y="34" width="184" height="36" rx="6" fill="#0e1326" stroke="#6ee7ff" stroke-opacity=".4"/>
+              <circle cx="84" cy="52" r="4" fill="#6ee7ff" class="pulse"/>
+              <rect x="98" y="48" width="100" height="3" fill="#6ee7ff" opacity=".6"/>
+              <rect x="98" y="56" width="60" height="3" fill="#6ee7ff" opacity=".4"/>
+
+              <rect x="68" y="78" width="184" height="36" rx="6" fill="#0e1326" stroke="#f7df1e" stroke-opacity=".4"/>
+              <circle cx="84" cy="96" r="4" fill="#f7df1e" class="pulse"/>
+              <rect x="98" y="92" width="100" height="3" fill="#f7df1e" opacity=".6"/>
+              <rect x="98" y="100" width="80" height="3" fill="#f7df1e" opacity=".4"/>
+
+              <rect x="68" y="122" width="184" height="36" rx="6" fill="#0e1326" stroke="#ff5ea8" stroke-opacity=".4"/>
+              <circle cx="84" cy="140" r="4" fill="#ff5ea8" class="pulse"/>
+              <rect x="98" y="136" width="100" height="3" fill="#ff5ea8" opacity=".6"/>
+              <rect x="98" y="144" width="40" height="3" fill="#ff5ea8" opacity=".4"/>
+            </g>
+          </svg>
+        </div>
+        <span class="year">2009</span>
+        <h2>Node.js: JavaScript sale del navegador</h2>
+        <p>Ryan Dahl combina V8 con E/S asíncrona y crea <strong>Node.js</strong>. Nace <strong>npm</strong>. JavaScript se convierte en el primer lenguaje capaz de correr en el cliente <em>y</em> en el servidor.</p>
+      </div>
+    </article>
+
+    <!-- 2015 ES6 -->
+    <article class="event">
+      <div class="dot"></div>
+      <div class="card">
+        <div class="media">
+          <svg viewBox="0 0 320 180" class="art" aria-hidden="true">
+            <g class="float-slow">
+              <path d="M160 28 L232 90 L160 152 L88 90 Z" fill="#6ee7ff" opacity=".85"/>
+              <path d="M160 28 L232 90 L160 90 Z" fill="#f7df1e"/>
+              <path d="M160 28 L88 90 L160 90 Z" fill="#f7df1e" opacity=".7"/>
+            </g>
+            <text x="160" y="102" font-size="20" font-weight="900" fill="#0b0b12" text-anchor="middle" font-family="Arial">ES6</text>
+            <g class="sparkle"><circle cx="60" cy="46" r="4" fill="#fff"/></g>
+            <g class="sparkle s2"><circle cx="262" cy="58" r="4" fill="#fff"/></g>
+            <g class="sparkle s3"><circle cx="250" cy="144" r="4" fill="#fff"/></g>
+            <g class="sparkle"><circle cx="70" cy="142" r="4" fill="#fff"/></g>
+          </svg>
+        </div>
+        <span class="year">2015</span>
+        <h2>ES6: la gran actualización</h2>
+        <p>Seis años después de ES5 llega <strong>ES2015</strong>: <code>let</code>, <code>const</code>, clases, <em>arrow functions</em>, promesas, módulos, <em>template literals</em>… El lenguaje moderno empieza aquí.</p>
+      </div>
+    </article>
+
+    <!-- 2016-2020 frameworks -->
+    <article class="event">
+      <div class="dot"></div>
+      <div class="card">
+        <div class="media">
+          <svg viewBox="0 0 320 180" class="art" aria-hidden="true">
+            <g class="float-slow">
+              <rect x="56" y="124" width="70" height="38" rx="6" fill="#61dafb"/>
+              <text x="91" y="147" font-size="11" font-weight="900" fill="#0b0b12" text-anchor="middle" font-family="Arial">React</text>
+
+              <rect x="138" y="124" width="70" height="38" rx="6" fill="#42b883"/>
+              <text x="173" y="147" font-size="11" font-weight="900" fill="#0b0b12" text-anchor="middle" font-family="Arial">Vue</text>
+
+              <rect x="220" y="124" width="70" height="38" rx="6" fill="#dd0031"/>
+              <text x="255" y="147" font-size="10" font-weight="900" fill="#fff" text-anchor="middle" font-family="Arial">Angular</text>
+
+              <rect x="97" y="76" width="70" height="38" rx="6" fill="#3178c6"/>
+              <text x="132" y="99" font-size="11" font-weight="900" fill="#fff" text-anchor="middle" font-family="Arial">TS</text>
+
+              <rect x="179" y="76" width="70" height="38" rx="6" fill="#f7df1e"/>
+              <text x="214" y="99" font-size="11" font-weight="900" fill="#0b0b12" text-anchor="middle" font-family="Arial">npm</text>
+
+              <rect x="138" y="28" width="70" height="38" rx="6" fill="#2b3a6b"/>
+              <text x="173" y="51" font-size="11" font-weight="900" fill="#6ee7ff" text-anchor="middle" font-family="Arial">JS</text>
+            </g>
+          </svg>
+        </div>
+        <span class="year">2016 — 2020</span>
+        <h2>La era de los frameworks</h2>
+        <p><strong>React</strong>, <strong>Vue</strong>, <strong>Angular</strong>, <strong>TypeScript</strong>, Webpack, Babel… El ecosistema explota. Se consolida el ciclo anual de ECMAScript: una versión nueva cada año.</p>
+      </div>
+    </article>
+
+    <!-- 2020+ -->
+    <article class="event">
+      <div class="dot"></div>
+      <div class="card">
+        <div class="media">
+          <svg viewBox="0 0 320 180" class="art" aria-hidden="true">
+            <g class="float-slow">
+              <circle cx="160" cy="90" r="60" fill="#0e2a4a"/>
+              <ellipse cx="160" cy="90" rx="60" ry="22" fill="none" stroke="#6ee7ff" stroke-width="2" opacity=".5"/>
+              <ellipse cx="160" cy="90" rx="22" ry="60" fill="none" stroke="#6ee7ff" stroke-width="2" opacity=".5"/>
+              <path d="M100 90 q60 -20 120 0" stroke="#6ee7ff" stroke-width="1.5" fill="none" opacity=".35"/>
+              <path d="M100 90 q60 20 120 0" stroke="#6ee7ff" stroke-width="1.5" fill="none" opacity=".35"/>
+              <path d="M130 58 q18 -10 30 4 q10 10 -4 18 q-14 8 -26 0 q-10 -12 0 -22z" fill="#f7df1e" opacity=".85"/>
+              <path d="M182 100 q14 -6 24 6 q6 10 -6 16 q-16 4 -22 -8 q-4 -10 4 -14z" fill="#f7df1e" opacity=".7"/>
+            </g>
+            <g class="sparkle"><circle cx="70" cy="40" r="3" fill="#ff5ea8"/></g>
+            <g class="sparkle s2"><circle cx="252" cy="50" r="3" fill="#6ee7ff"/></g>
+            <g class="sparkle s3"><circle cx="260" cy="142" r="3" fill="#f7df1e"/></g>
+          </svg>
+        </div>
+        <span class="year">2020 → hoy</span>
+        <h2>JavaScript en todas partes</h2>
+        <p><code>async/await</code>, <em>optional chaining</em>, <em>top-level await</em>. Deno y Bun desafían a Node. WebAssembly, edge computing, apps de escritorio y móviles. De 10 días de trabajo a infraestructura global.</p>
+      </div>
+    </article>
+  </main>
+
+  <!-- ===================== OUTRO ===================== -->
+  <footer class="outro">
+    <h2>Fin del recorrido</h2>
+    <p>De un prototipo improvisado en 1995 a la tecnología que sostiene la web moderna. Y esto solo es el principio.</p>
+    <div class="jslogo small" aria-hidden="true">
+      <svg viewBox="0 0 100 100">
+        <rect width="100" height="100" rx="20" fill="#f7df1e"/>
+        <text x="78" y="86" font-family="Arial, sans-serif" font-size="46" font-weight="900"
+              fill="#0b0b12" text-anchor="end">JS</text>
+      </svg>
+    </div>
+  </footer>
+
+  <button class="tour-btn" id="tourBtn">▶ Recorrido automático</button>
+  <div class="toast" id="toast" role="status" aria-live="polite"></div>
+
+  <script src="script.js"></script>
+</body>
+</html>
