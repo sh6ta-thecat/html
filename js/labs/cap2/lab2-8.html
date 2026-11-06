@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Operadores y expresiones | Laboratorio JavaScript</title>
+<style>
+:root{font-family:system-ui,Segoe UI,Arial,sans-serif;color:#202938;background:#f3f5f8}
+*{box-sizing:border-box}body{margin:0;padding:24px}
+main{max-width:1100px;margin:auto}
+header,.panel{background:white;border:1px solid #dfe4ec;border-radius:12px;padding:20px;margin-bottom:16px}
+h1{font-size:1.65rem;margin:0 0 8px}h2{font-size:1.05rem;margin:0 0 12px}
+p{line-height:1.55;margin:8px 0}
+.layout{display:grid;grid-template-columns:1.1fr .9fr;gap:16px}
+textarea{width:100%;min-height:390px;resize:vertical;border:1px solid #cbd3df;border-radius:8px;padding:14px;font:14px/1.55 Consolas,monospace;background:#101827;color:#e6edf7;tab-size:4}
+.actions{display:flex;gap:10px;flex-wrap:wrap;margin-top:12px}
+button{border:0;border-radius:8px;padding:10px 16px;font-weight:650;cursor:pointer;background:#2457c5;color:white}
+button.secondary{background:#e8edf5;color:#263449}
+#output{min-height:250px;max-height:390px;overflow:auto;background:#101827;color:#e6edf7;border-radius:8px;padding:14px;font:13px/1.6 Consolas,monospace;white-space:pre-wrap;overflow-wrap:anywhere}
+.hint{background:#eef4ff;border-left:4px solid #4778d0;padding:12px;border-radius:6px}
+.status{font-size:.9rem;color:#536176;margin-top:8px}
+footer{color:#647084;font-size:.85rem;margin:18px 2px}
+@media(max-width:760px){body{padding:12px}.layout{grid-template-columns:1fr}textarea{min-height:330px}}
+</style>
+</head>
+<body>
+<main>
+<header>
+<p><strong>MANUAL DE JAVASCRIPT · CAPÍTULO 2</strong></p>
+<h1>Operadores y expresiones</h1>
+<p>Practica operaciones aritméticas, asignación, comparación y lógica.</p>
+<div class="hint"><strong>Actividad:</strong> Cambia a y b y calcula el residuo de una división. Prueba prefijo y postfijo (++x y x++). Agrega una expresión con paréntesis para cambiar la precedencia.</div>
+</header>
+<section class="layout">
+<div class="panel">
+<h2>Editor de JavaScript</h2>
+<textarea id="editor" spellcheck="false" aria-label="Código JavaScript editable">let a = 12;
+let b = 5;
+
+console.log("Suma:", a + b);
+console.log("Resta:", a - b);
+console.log("Multiplicación:", a * b);
+console.log("División:", a / b);
+console.log("Módulo:", a % b);
+console.log("Potencia:", a ** b);
+
+let saldo = 100;
+saldo += 25;
+console.log("Saldo:", saldo);
+
+console.log("Igualdad estricta:", 5 === "5");
+console.log("Mayor:", a &gt; b);
+console.log("AND:", a &gt; 10 &amp;&amp; b &lt; 10);
+console.log("OR:", a &lt; 10 || b &lt; 10);
+console.log("NOT:", !(a === b));
+
+let edad = 20;
+let mensaje = edad &gt;= 18 ? "Mayor de edad" : "Menor de edad";
+console.log(mensaje);</textarea>
+<div class="actions">
+<button id="run">▶ Ejecutar código</button>
+<button class="secondary" id="reset">Restaurar código</button>
+<button class="secondary" id="clear">Limpiar consola</button>
+</div>
+<p class="status">El código se ejecuta en un marco aislado del resto de esta página. Los cambios del editor no se guardan al cerrar la pestaña.</p>
+</div>
+<div class="panel">
+<h2>Consola de resultados</h2>
+<pre id="output" aria-live="polite">Presiona «Ejecutar código» para ver los resultados.</pre>
+</div>
+</section>
+<footer>Laboratorio educativo · HTML, CSS y JavaScript nativo.</footer>
+</main>
+<iframe id="runner" sandbox="allow-scripts" title="Entorno aislado de ejecución" style="display:none"></iframe>
+<script>
+const initialCode = document.getElementById("editor").value;
+const editor = document.getElementById("editor");
+const output = document.getElementById("output");
+const runner = document.getElementById("runner");
+
+function showLine(kind, values) {
+    const line = "[" + kind + "] " + values.map(value => {
+        if (typeof value === "string") return value;
+        try { return JSON.stringify(value, (_, v) => typeof v === "bigint" ? v + "n" : v); }
+        catch { return String(value); }
+    }).join(" ");
+    output.textContent += (output.textContent ? "\n" : "") + line;
+}
+
+function execute() {
+    output.textContent = "";
+    const source = editor.value;
+    const frameDocument = `<!doctype html><html><body><script>
+    function format(value) {
+        if (typeof value === "string") return value;
+        if (typeof value === "undefined") return "undefined";
+        if (typeof value === "bigint") return value.toString() + "n";
+        try { return JSON.stringify(value, function(k,v){ return typeof v === "bigint" ? v.toString() + "n" : v; }); }
+        catch(e) { return String(value); }
+    }
+    const safeConsole = {};
+    ["log","info","warn","error","debug"].forEach(function(kind) {
+        safeConsole[kind] = function() {
+            parent.postMessage({lab: true, kind: kind, values: Array.from(arguments).map(format)}, "*");
+        };
+    });
+    window.addEventListener("error", function(event) {
+        parent.postMessage({lab: true, kind: "error", values: [event.message + " (línea " + event.lineno + ")"]}, "*");
+    });
+    window.addEventListener("unhandledrejection", function(event) {
+        parent.postMessage({lab: true, kind: "error", values: ["Promesa rechazada: " + format(event.reason)]}, "*");
+    });
+    try {
+        new Function("console", ${JSON.stringify(source)})(safeConsole);
+        parent.postMessage({lab: true, kind: "system", values: ["Ejecución finalizada."]}, "*");
+    } catch (error) {
+        parent.postMessage({lab: true, kind: "error", values: [error.name + ": " + error.message]}, "*");
+    }
+    <\/script></body></html>`;
+    runner.srcdoc = frameDocument;
+}
+window.addEventListener("message", event => {
+    if (event.source !== runner.contentWindow || !event.data || event.data.lab !== true) return;
+    showLine(event.data.kind, event.data.values || []);
+});
+document.getElementById("run").addEventListener("click", execute);
+document.getElementById("reset").addEventListener("click", () => {
+    editor.value = initialCode;
+    output.textContent = "Código restaurado. Presiona «Ejecutar código».";
+});
+document.getElementById("clear").addEventListener("click", () => output.textContent = "");
+editor.addEventListener("keydown", event => {
+    if (event.key === "Tab") {
+        event.preventDefault();
+        const start = editor.selectionStart, end = editor.selectionEnd;
+        editor.setRangeText("    ", start, end, "end");
+    }
+});
+</script>
+</body>
+</html>
